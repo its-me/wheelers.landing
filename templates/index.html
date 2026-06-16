@@ -20,7 +20,7 @@
   *{box-sizing:border-box;}
   html{scroll-behavior:smooth;scroll-padding-top:92px;}
   body{margin:0;font-family:'Work Sans',system-ui,sans-serif;background:#fff;color:#14181F;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;
-       --blue:{{ brand.blue }};--blue2:#294895;--green:#84D1CB;--green-tile:#E5F4F3;--green-16:rgba(132,209,203,0.16);--mint:{{ brand.mint }};--coral:{{ brand.coral }};--ink:#14181F;--ink2:#252A2F;--muted:#5b6472;--cloud:#F4F6F8;--line:#e7e9ee;}
+       --blue:{{ brand.blue }};--blue2:#294895;--green:#84D1CB;--green-tile:#E5F4F3;--green-16:rgba(132,209,203,0.16);--green-32:rgba(132,209,203,0.32);--mint:{{ brand.mint }};--coral:{{ brand.coral }};--ink:#14181F;--ink2:#252A2F;--muted:#5b6472;--cloud:#F4F6F8;--line:#e7e9ee;}
   input,textarea,button{font-family:inherit;}
   ::placeholder{color:#9aa3b0;}
   @keyframes whFloat{from{opacity:0;transform:translateY(18px);}to{opacity:1;transform:none;}}
@@ -37,7 +37,10 @@
   <header style="position:fixed;top:0;left:0;right:0;height:80px;display:flex;align-items:center;justify-content:space-between;padding:0 clamp(20px,4vw,48px);background:var(--blue2);z-index:60;">
     <a href="#top" style="display:flex;align-items:center;gap:11px;text-decoration:none;">
       <span style="width:40px;height:40px;border-radius:12px;background:var(--green-tile);display:flex;align-items:center;justify-content:center;flex:none;">
-        <img src="{{ url_for('static', path='logo-w.svg') }}" alt="" style="width:21px;height:auto;display:block;" />
+        <svg width="21" height="16" viewBox="0 0 23.4992 18.125" fill="none" xmlns="http://www.w3.org/2000/svg" style="display:block;">
+          <path d="M18.8318 0.0750732C19.5629 0.0751511 20.2264 0.326985 20.7605 0.619507C21.3013 0.915757 21.7837 1.29485 22.1741 1.64673C22.568 2.00181 22.8944 2.35279 23.1213 2.61353C23.2356 2.74479 23.3271 2.8554 23.3911 2.93518C23.4232 2.97511 23.4486 3.00747 23.4668 3.03101C23.4759 3.04278 23.4833 3.05247 23.4888 3.05969C23.4915 3.06329 23.4937 3.06643 23.4955 3.06885C23.4964 3.07003 23.4973 3.07101 23.4979 3.0719L23.4985 3.07312L23.4992 3.07373C23.4993 3.07397 23.4995 3.07436 22.5 3.82507L21.5009 4.57581L21.4905 4.56299C21.4804 4.54995 21.4637 4.52841 21.441 4.50012C21.3954 4.44323 21.3256 4.35838 21.236 4.25537C21.0549 4.0474 20.7998 3.77323 20.5005 3.50342C20.1976 3.23038 19.8748 2.98435 19.5599 2.81189C19.2384 2.63574 18.9953 2.57508 18.8312 2.57507C18.1571 2.57513 17.7132 2.84367 17.0886 3.30383C16.5323 3.71373 15.5846 4.51954 14.2462 4.51965C12.8962 4.51965 11.8443 3.79276 11.1585 3.34167C10.3546 2.81294 9.93463 2.57508 9.47694 2.57507C8.84081 2.57507 8.17066 2.95088 7.56592 3.50037C7.2813 3.75902 7.05015 4.02128 6.89027 4.21936C6.81113 4.31741 6.7513 4.39748 6.71326 4.45007C6.69429 4.4763 6.6806 4.49579 6.67298 4.50684C6.67056 4.51035 6.6687 4.51299 6.66749 4.51477V4.51416C6.66341 4.51108 6.59917 4.46834 5.62501 3.82507C4.5819 3.13628 4.58231 3.13571 4.58253 3.13538V3.13477L4.58375 3.13354C4.5845 3.13241 4.58523 3.13072 4.58619 3.12927C4.58813 3.12637 4.59074 3.123 4.59351 3.1189C4.59905 3.11069 4.60605 3.09995 4.61487 3.08716C4.63251 3.06159 4.65704 3.02735 4.68751 2.98523C4.74833 2.90113 4.83458 2.7857 4.94446 2.64954C5.16285 2.37894 5.48199 2.01599 5.88502 1.64978C6.65597 0.949287 7.91206 0.0750732 9.47694 0.0750732C10.8099 0.0750831 11.8574 0.80948 12.5317 1.25305C13.3242 1.77428 13.7621 2.01965 14.2462 2.01965C14.5984 2.01956 14.8429 1.85314 15.6061 1.29089C16.3011 0.778841 17.305 0.0750152 18.8318 0.0750732Z" fill="#84D1CB"/>
+          <path d="M16.0375 5.54993H19.6875L16.6374 18.0499H12.6874L9.96244 9.54993L7.33744 18.0499H3.38744L0 0.700073L3.4375 0.0750732L5.62485 13.6749L8.31244 5.54993H11.7124L14.6874 13.6749L16.0375 5.54993Z" fill="#294895"/>
+        </svg>
       </span>
       <span style="font-weight:700;font-size:24px;color:#fff;letter-spacing:-0.02em;">Wheelers</span>
     </a>
@@ -92,33 +95,33 @@
   </section>
 
   <!-- ============ PRODUCT / PLATFORM ============ -->
-  <section id="platform" data-sec data-idx="1" style="padding:clamp(80px,9vw,128px) clamp(20px,5vw,72px);background:#F8FAFB;border-top:1px solid #eef1f4;">
-    <div style="max-width:1180px;margin:0 auto;">
-      <span style="font-size:13px;font-weight:600;letter-spacing:0.18em;text-transform:uppercase;color:var(--blue);">Product</span>
-      <h2 style="margin:16px 0 0;font-size:clamp(32px,4.4vw,56px);line-height:1.04;font-weight:600;letter-spacing:-0.03em;max-width:18ch;color:#14181F;">One platform for the whole rental business</h2>
-      <p style="margin:20px 0 0;max-width:62ch;font-size:18px;line-height:1.55;color:#5b6472;">A modern SaaS that manages operations, fleets and customers end-to-end — desktop, iOS and Android from a single codebase, wired into the UAE's tolls, fines, payments and insurance.</p>
+  <section id="platform" data-sec data-idx="1" style="padding:clamp(80px,9vw,128px) clamp(20px,5vw,72px);background:var(--green-16);border-top:1px solid #eef1f4;">
+    <div style="max-width:1180px;margin:0 auto;display:flex;flex-direction:column;align-items:center;">
+      <span style="font-size:13px;font-weight:600;letter-spacing:0.18em;text-transform:uppercase;color:var(--blue);text-align:center;">Product</span>
+      <h2 style="margin:16px 0 0;font-size:clamp(32px,4.4vw,56px);line-height:1.04;font-weight:600;letter-spacing:-0.03em;max-width:18ch;color:var(--ink2);text-align:center;">One platform for the whole rental business</h2>
+      <p style="margin:20px 0 0;max-width:62ch;font-size:18px;line-height:1.55;color:#5b6472;text-align:center;">A modern SaaS that manages operations, fleets and customers end-to-end — desktop, iOS and Android from a single codebase, wired into the UAE's tolls, fines, payments and insurance.</p>
 
-      <div class="wh-grid-3" style="display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:34px;">
-        <div style="background:#fff;border:1px solid #e9edf1;border-radius:14px;padding:24px;">
+      <div class="wh-grid-3" style="display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:34px;width:100%;">
+        <div style="background:var(--green-32);border-radius:14px;padding:24px;">
           <span style="font-size:12px;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:var(--blue);">Everywhere at once</span>
           <p style="margin:10px 0 0;font-size:15px;line-height:1.5;color:#5b6472;">Desktop, iOS and Android from a single Flutter codebase with a tailored backend.</p>
         </div>
-        <div style="background:#fff;border:1px solid #e9edf1;border-radius:14px;padding:24px;">
+        <div style="background:var(--green-32);border-radius:14px;padding:24px;">
           <span style="font-size:12px;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:var(--blue);">Wired into the UAE</span>
           <p style="margin:10px 0 0;font-size:15px;line-height:1.5;color:#5b6472;">Salik &amp; Darb tolls, traffic fines, payments, banks and insurance — included.</p>
         </div>
-        <div style="background:#fff;border:1px solid #e9edf1;border-radius:14px;padding:24px;">
+        <div style="background:var(--green-32);border-radius:14px;padding:24px;">
           <span style="font-size:12px;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:var(--blue);">AI built in</span>
           <p style="margin:10px 0 0;font-size:15px;line-height:1.5;color:#5b6472;">Neural-network support and an agentic assistant for everyday operations.</p>
         </div>
       </div>
 
-      <div class="wh-grid-3" style="display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:18px;">
+      <div class="wh-grid-3" style="display:grid;grid-template-columns:repeat(3,1fr);column-gap:18px;row-gap:12px;margin-top:12px;width:100%;">
         {% for c in caps %}
-        <div style="background:#fff;border:1px solid #e9edf1;border-radius:16px;padding:28px;">
-          <span style="display:flex;align-items:center;justify-content:center;width:46px;height:46px;border-radius:12px;background:{{ c.chip }};color:{{ c.ink }};font-weight:700;font-size:18px;">{{ c.tag }}</span>
-          <h3 style="margin:18px 0 0;font-size:19px;font-weight:600;letter-spacing:-0.01em;color:#14181F;">{{ c.title }}</h3>
-          <p style="margin:9px 0 0;font-size:14.5px;line-height:1.55;color:#5b6472;">{{ c.desc }}</p>
+        <div style="background:#fff;border-radius:16px;padding:28px;display:flex;flex-direction:column;">
+          <h3 style="margin:0;font-size:20px;font-weight:600;letter-spacing:-0.01em;color:var(--ink2);">{{ c.title }}</h3>
+          <div style="width:10px;height:9px;margin-top:9px;flex-shrink:0;"></div>
+          <p style="margin:0;font-size:14px;line-height:1.55;color:#5b6472;">{{ c.desc }}</p>
         </div>
         {% endfor %}
       </div>
@@ -187,13 +190,13 @@
   </section>
 
   <!-- ============ INVEST ============ -->
-  <section id="invest" data-sec data-idx="3" style="padding:clamp(80px,9vw,130px) clamp(20px,5vw,72px);background:var(--blue);color:#fff;">
-    <div style="max-width:1180px;margin:0 auto;">
-      <span style="font-size:13px;font-weight:600;letter-spacing:0.18em;text-transform:uppercase;color:var(--mint);">Investment opportunity</span>
-      <h2 style="margin:16px 0 0;font-size:clamp(34px,4.8vw,60px);line-height:1.03;font-weight:600;letter-spacing:-0.03em;max-width:20ch;color:#fff;">We're raising $200,000 for a 20% stake</h2>
-      <p style="margin:20px 0 0;max-width:60ch;font-size:18px;line-height:1.55;color:#c6d4ef;">Goal: operational profitability within six months. Investor returns via dividends, share buy-backs or secondary sales.</p>
+  <section id="invest" data-sec data-idx="3" style="padding:clamp(80px,9vw,130px) clamp(20px,5vw,72px);background:var(--blue2);color:#fff;">
+    <div style="max-width:1180px;margin:0 auto;display:flex;flex-direction:column;align-items:center;">
+      <span style="font-size:13px;font-weight:600;letter-spacing:0.18em;text-transform:uppercase;color:var(--mint);text-align:center;">Investment opportunity</span>
+      <h2 style="margin:16px 0 0;font-size:clamp(34px,4.8vw,60px);line-height:1.03;font-weight:600;letter-spacing:-0.03em;max-width:20ch;color:#fff;text-align:center;">We're raising $200,000 for a 20% stake</h2>
+      <p style="margin:20px 0 0;max-width:57ch;font-size:20px;line-height:1.55;color:#c6d4ef;text-align:center;">Goal: operational profitability within six months. Investor returns via dividends, share buy-backs or secondary sales.</p>
 
-      <div class="wh-invest-grid" style="display:grid;grid-template-columns:1fr 1fr;gap:28px;margin-top:48px;align-items:stretch;">
+      <div class="wh-invest-grid" style="display:grid;grid-template-columns:1fr 1fr;gap:28px;margin-top:40px;align-items:stretch;width:100%;">
         <!-- left: raise + minimum ticket -->
         <div style="display:flex;flex-direction:column;gap:18px;">
           <div style="flex:1;display:flex;flex-direction:column;justify-content:center;background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.16);border-radius:16px;padding:28px;">
@@ -303,7 +306,10 @@
       <footer style="margin-top:64px;padding-top:30px;border-top:1px solid #eef0f3;display:flex;flex-wrap:wrap;gap:14px;justify-content:space-between;align-items:center;">
         <div style="display:flex;align-items:center;gap:10px;">
           <span style="width:32px;height:32px;border-radius:10px;background:var(--green-tile);display:flex;align-items:center;justify-content:center;flex:none;">
-            <img src="{{ url_for('static', path='logo-w.svg') }}" alt="" style="width:17px;height:auto;display:block;" />
+            <svg width="17" height="13" viewBox="0 0 23.4992 18.125" fill="none" xmlns="http://www.w3.org/2000/svg" style="display:block;">
+              <path d="M18.8318 0.0750732C19.5629 0.0751511 20.2264 0.326985 20.7605 0.619507C21.3013 0.915757 21.7837 1.29485 22.1741 1.64673C22.568 2.00181 22.8944 2.35279 23.1213 2.61353C23.2356 2.74479 23.3271 2.8554 23.3911 2.93518C23.4232 2.97511 23.4486 3.00747 23.4668 3.03101C23.4759 3.04278 23.4833 3.05247 23.4888 3.05969C23.4915 3.06329 23.4937 3.06643 23.4955 3.06885C23.4964 3.07003 23.4973 3.07101 23.4979 3.0719L23.4985 3.07312L23.4992 3.07373C23.4993 3.07397 23.4995 3.07436 22.5 3.82507L21.5009 4.57581L21.4905 4.56299C21.4804 4.54995 21.4637 4.52841 21.441 4.50012C21.3954 4.44323 21.3256 4.35838 21.236 4.25537C21.0549 4.0474 20.7998 3.77323 20.5005 3.50342C20.1976 3.23038 19.8748 2.98435 19.5599 2.81189C19.2384 2.63574 18.9953 2.57508 18.8312 2.57507C18.1571 2.57513 17.7132 2.84367 17.0886 3.30383C16.5323 3.71373 15.5846 4.51954 14.2462 4.51965C12.8962 4.51965 11.8443 3.79276 11.1585 3.34167C10.3546 2.81294 9.93463 2.57508 9.47694 2.57507C8.84081 2.57507 8.17066 2.95088 7.56592 3.50037C7.2813 3.75902 7.05015 4.02128 6.89027 4.21936C6.81113 4.31741 6.7513 4.39748 6.71326 4.45007C6.69429 4.4763 6.6806 4.49579 6.67298 4.50684C6.67056 4.51035 6.6687 4.51299 6.66749 4.51477V4.51416C6.66341 4.51108 6.59917 4.46834 5.62501 3.82507C4.5819 3.13628 4.58231 3.13571 4.58253 3.13538V3.13477L4.58375 3.13354C4.5845 3.13241 4.58523 3.13072 4.58619 3.12927C4.58813 3.12637 4.59074 3.123 4.59351 3.1189C4.59905 3.11069 4.60605 3.09995 4.61487 3.08716C4.63251 3.06159 4.65704 3.02735 4.68751 2.98523C4.74833 2.90113 4.83458 2.7857 4.94446 2.64954C5.16285 2.37894 5.48199 2.01599 5.88502 1.64978C6.65597 0.949287 7.91206 0.0750732 9.47694 0.0750732C10.8099 0.0750831 11.8574 0.80948 12.5317 1.25305C13.3242 1.77428 13.7621 2.01965 14.2462 2.01965C14.5984 2.01956 14.8429 1.85314 15.6061 1.29089C16.3011 0.778841 17.305 0.0750152 18.8318 0.0750732Z" fill="#84D1CB"/>
+              <path d="M16.0375 5.54993H19.6875L16.6374 18.0499H12.6874L9.96244 9.54993L7.33744 18.0499H3.38744L0 0.700073L3.4375 0.0750732L5.62485 13.6749L8.31244 5.54993H11.7124L14.6874 13.6749L16.0375 5.54993Z" fill="#294895"/>
+            </svg>
           </span>
           <span style="font-weight:700;font-size:16px;color:#14181F;">Wheelers</span>
         </div>

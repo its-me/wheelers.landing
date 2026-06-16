@@ -59,17 +59,17 @@ NAV = [
 
 # Platform capability cards.
 CAPS = [
-    {"tag": "F", "chip": "#e8effc", "ink": "#1B3D97", "title": "Fleet Management",
+    {"title": "Fleet Management",
      "desc": "Real-time fleet status, vehicle utilization and proactive maintenance schedules."},
-    {"tag": "C", "chip": "#e2f6f1", "ink": "#0f7d6c", "title": "Customer Portal & Chat",
+    {"title": "Customer Portal & Chat",
      "desc": "Order tracking, rental history and direct chat with the operator."},
-    {"tag": "T", "chip": "#fbeee7", "ink": "#b5663f", "title": "Tolls & Fines Integration",
+    {"title": "Tolls & Fines Integration",
      "desc": "Smart invoicing and real-time updates for UAE tolls and traffic fines."},
-    {"tag": "M", "chip": "#e8effc", "ink": "#1B3D97", "title": "Full Mobile Experience",
+    {"title": "Full Mobile Experience",
      "desc": "A full-fledged mobile experience for both Android and iOS operators."},
-    {"tag": "I", "chip": "#e2f6f1", "ink": "#0f7d6c", "title": "Integrated Insurance",
+    {"title": "Integrated Insurance",
      "desc": "Integrated insurance options woven directly into the core rental flow."},
-    {"tag": "AI", "chip": "#fbeee7", "ink": "#b5663f", "title": "AI-Driven Productivity",
+    {"title": "AI-Driven Productivity",
      "desc": "Platform-wide AI agents and automated support chatbots, 24/7."},
 ]
 
