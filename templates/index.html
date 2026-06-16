@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Wheelers — Modern rental operations, made simple.</title>
+<meta name="description" content="Wheelers replaces the UAE's outdated legacy rental tools with one modern platform — fleet, customers, tolls, fines and insurance, end to end.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;scroll-padding-top:84px;}
+  body{margin:0;font-family:'Work Sans',system-ui,sans-serif;background:#fff;color:#14181F;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;
+       --blue:{{ brand.blue }};--mint:{{ brand.mint }};--coral:{{ brand.coral }};--ink:#14181F;--muted:#5b6472;--cloud:#F4F6F8;--line:#e7e9ee;}
+  input,textarea,button{font-family:inherit;}
+  ::placeholder{color:#9aa3b0;}
+  @keyframes whFloat{from{opacity:0;transform:translateY(18px);}to{opacity:1;transform:none;}}
+  @media (max-width:860px){
+    .wh-grid-3{grid-template-columns:1fr !important;}
+    .wh-invest-grid,.wh-contact-grid{grid-template-columns:1fr !important;}
+    .wh-dotnav{display:none !important;}
+  }
+</style>
+</head>
+<body>
+<div style="position:relative;">
+
+  <header style="position:fixed;top:0;left:0;right:0;height:72px;display:flex;align-items:center;justify-content:space-between;padding:0 clamp(20px,4vw,48px);background:rgba(255,255,255,0.82);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid #e7e9ee;z-index:60;">
+    <a href="#top" style="display:flex;align-items:center;gap:11px;text-decoration:none;">
+      <span style="width:34px;height:34px;border-radius:9px;background:var(--blue);display:flex;align-items:center;justify-content:center;color:#fff;font-weight:700;font-size:17px;letter-spacing:-0.03em;">W</span>
+      <span style="font-weight:700;font-size:19px;color:#14181F;letter-spacing:-0.02em;">wheele.rs</span>
+    </a>
+    <nav style="display:flex;align-items:center;gap:clamp(14px,2.4vw,34px);">
+      <a href="#platform" style="text-decoration:none;color:#3a414d;font-weight:500;font-size:15px;">Platform</a>
+      <a href="#pricing" style="text-decoration:none;color:#3a414d;font-weight:500;font-size:15px;">Pricing</a>
+      <a href="#invest" style="text-decoration:none;color:#3a414d;font-weight:500;font-size:15px;">Invest</a>
+      <a href="#contact" style="text-decoration:none;background:var(--blue);color:#fff;padding:10px 20px;border-radius:9px;font-weight:600;font-size:15px;">Book a demo</a>
+    </nav>
+  </header>
+
+  <nav class="wh-dotnav" style="position:fixed;right:26px;top:50%;transform:translateY(-50%);z-index:55;display:flex;flex-direction:column;gap:14px;align-items:center;">
+    {% for d in nav %}
+    <a href="{{ d.href }}" title="{{ d.label }}" data-dot="{{ loop.index0 }}" style="display:block;width:9px;height:9px;border-radius:50%;transition:all .25s ease;background:#cdd3dc;"></a>
+    {% endfor %}
+  </nav>
+
+  <!-- ============ HERO ============ -->
+  <section id="top" data-sec data-idx="0" style="position:relative;min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:118px 24px 64px;overflow:hidden;background:radial-gradient(120% 70% at 50% -8%, #eaf7f4 0%, #ffffff 58%);">
+    <span style="font-size:13px;font-weight:600;letter-spacing:0.18em;text-transform:uppercase;color:var(--blue);margin-bottom:22px;">Full-stack rental SaaS · United Arab Emirates</span>
+    <h1 style="margin:0;max-width:14ch;font-size:clamp(40px,6.2vw,82px);line-height:1.02;font-weight:600;letter-spacing:-0.035em;color:#14181F;text-wrap:balance;">Modern rental operations, made simple.</h1>
+    <p style="margin:26px auto 0;max-width:60ch;font-size:clamp(17px,1.6vw,20px);line-height:1.55;color:#5b6472;font-weight:400;">Wheelers replaces the UAE's outdated legacy rental tools with one modern platform — fleet, customers, tolls, fines and insurance, end to end. Built for the way operators actually work.</p>
+    <div style="display:flex;gap:14px;flex-wrap:wrap;justify-content:center;margin-top:36px;">
+      <a href="#contact" style="display:inline-flex;align-items:center;gap:9px;background:var(--blue);color:#fff;padding:15px 30px;border-radius:11px;font-weight:600;font-size:16.5px;text-decoration:none;box-shadow:0 14px 34px -14px rgba(27,61,151,0.6);">Book a demo</a>
+      <a href="#platform" style="display:inline-flex;align-items:center;gap:9px;background:#fff;color:var(--blue);padding:15px 30px;border-radius:11px;font-weight:600;font-size:16.5px;text-decoration:none;border:1.5px solid #d6dbe4;">Explore the platform</a>
+    </div>
+    <div style="display:flex;gap:clamp(22px,5vw,64px);flex-wrap:wrap;justify-content:center;margin-top:46px;">
+      <div style="display:flex;flex-direction:column;align-items:center;">
+        <span style="font-size:clamp(26px,3vw,38px);font-weight:700;color:#14181F;letter-spacing:-0.02em;">5,000+</span>
+        <span style="font-size:13.5px;color:#5b6472;letter-spacing:0.04em;margin-top:3px;">rental operators</span>
+      </div>
+      <div style="width:1px;background:#e1e5ec;align-self:stretch;"></div>
+      <div style="display:flex;flex-direction:column;align-items:center;">
+        <span style="font-size:clamp(26px,3vw,38px);font-weight:700;color:#14181F;letter-spacing:-0.02em;">110,000+</span>
+        <span style="font-size:13.5px;color:#5b6472;letter-spacing:0.04em;margin-top:3px;">active vehicles</span>
+      </div>
+      <div style="width:1px;background:#e1e5ec;align-self:stretch;"></div>
+      <div style="display:flex;flex-direction:column;align-items:center;">
+        <span style="font-size:clamp(26px,3vw,38px);font-weight:700;color:#14181F;letter-spacing:-0.02em;">2.5M</span>
+        <span style="font-size:13.5px;color:#5b6472;letter-spacing:0.04em;margin-top:3px;">renters / year</span>
+      </div>
+    </div>
+    <div style="width:min(1040px,94%);margin:54px auto 0;border-radius:16px;background:#fff;border:1px solid #e7e9ee;box-shadow:0 40px 90px -40px rgba(20,24,31,0.34);overflow:hidden;">
+      <div style="display:flex;align-items:center;gap:8px;padding:13px 16px;border-bottom:1px solid #eef0f3;background:#fbfbfc;">
+        <span style="width:11px;height:11px;border-radius:50%;background:#e2655a;"></span>
+        <span style="width:11px;height:11px;border-radius:50%;background:#e7b24a;"></span>
+        <span style="width:11px;height:11px;border-radius:50%;background:#5bb964;"></span>
+        <span style="margin-left:14px;font-size:12.5px;color:#8a93a0;background:#f0f1f4;padding:4px 14px;border-radius:6px;">app.wheele.rs/dashboard</span>
+      </div>
+      <img src="{{ url_for('static', path='product.png') }}" alt="Wheelers operations dashboard" style="display:block;width:100%;height:auto;" />
+    </div>
+  </section>
+
+  <!-- ============ PLATFORM ============ -->
+  <section id="platform" data-sec data-idx="1" style="padding:clamp(80px,9vw,128px) clamp(20px,5vw,72px);background:#F8FAFB;border-top:1px solid #eef1f4;">
+    <div style="max-width:1180px;margin:0 auto;">
+      <span style="font-size:13px;font-weight:600;letter-spacing:0.18em;text-transform:uppercase;color:var(--blue);">The platform</span>
+      <h2 style="margin:16px 0 0;font-size:clamp(32px,4.4vw,56px);line-height:1.04;font-weight:600;letter-spacing:-0.03em;max-width:18ch;color:#14181F;">One platform for the whole rental business.</h2>
+      <p style="margin:20px 0 0;max-width:62ch;font-size:18px;line-height:1.55;color:#5b6472;">A modern SaaS that manages operations, fleets and customers end-to-end — desktop, iOS and Android from a single codebase, wired into the UAE's tolls, fines, payments and insurance.</p>
+
+      <div class="wh-grid-3" style="display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:34px;">
+        <div style="background:#fff;border:1px solid #e9edf1;border-radius:14px;padding:24px;">
+          <span style="font-size:12px;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:var(--blue);">Everywhere at once</span>
+          <p style="margin:10px 0 0;font-size:15px;line-height:1.5;color:#5b6472;">Desktop, iOS and Android from a single Flutter codebase with a tailored backend.</p>
+        </div>
+        <div style="background:#fff;border:1px solid #e9edf1;border-radius:14px;padding:24px;">
+          <span style="font-size:12px;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:var(--blue);">Wired into the UAE</span>
+          <p style="margin:10px 0 0;font-size:15px;line-height:1.5;color:#5b6472;">Salik &amp; Darb tolls, traffic fines, payments, banks and insurance — included.</p>
+        </div>
+        <div style="background:#fff;border:1px solid #e9edf1;border-radius:14px;padding:24px;">
+          <span style="font-size:12px;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:var(--blue);">AI built in</span>
+          <p style="margin:10px 0 0;font-size:15px;line-height:1.5;color:#5b6472;">Neural-network support and an agentic assistant for everyday operations.</p>
+        </div>
+      </div>
+
+      <div class="wh-grid-3" style="display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:18px;">
+        {% for c in caps %}
+        <div style="background:#fff;border:1px solid #e9edf1;border-radius:16px;padding:28px;">
+          <span style="display:flex;align-items:center;justify-content:center;width:46px;height:46px;border-radius:12px;background:{{ c.chip }};color:{{ c.ink }};font-weight:700;font-size:18px;">{{ c.tag }}</span>
+          <h3 style="margin:18px 0 0;font-size:19px;font-weight:600;letter-spacing:-0.01em;color:#14181F;">{{ c.title }}</h3>
+          <p style="margin:9px 0 0;font-size:14.5px;line-height:1.55;color:#5b6472;">{{ c.desc }}</p>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ PRICING ============ -->
+  <section id="pricing" data-sec data-idx="2" style="padding:clamp(80px,9vw,128px) clamp(20px,5vw,72px);background:#fff;">
+    <div style="max-width:1180px;margin:0 auto;">
+      <div style="text-align:center;">
+        <span style="font-size:13px;font-weight:600;letter-spacing:0.18em;text-transform:uppercase;color:var(--blue);">Pricing</span>
+        <h2 style="margin:16px auto 0;font-size:clamp(32px,4.4vw,56px);line-height:1.04;font-weight:600;letter-spacing:-0.03em;max-width:20ch;color:#14181F;">A subscription ladder, built to compound.</h2>
+        <p style="margin:18px auto 0;max-width:54ch;font-size:18px;line-height:1.55;color:#5b6472;">A 14-day trial gives every new operator full access to the platform's core functionality. Start free, upgrade as the fleet grows.</p>
+      </div>
+
+      <div class="wh-grid-3" style="display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:46px;align-items:stretch;">
+        <!-- Starter -->
+        <div style="background:#fff;border:1px solid #e4e8ee;border-radius:18px;padding:32px;display:flex;flex-direction:column;">
+          <span style="font-size:14px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:#5b6472;">Starter</span>
+          <div style="display:flex;align-items:baseline;gap:6px;margin-top:14px;"><span style="font-size:40px;font-weight:700;letter-spacing:-0.03em;color:#14181F;">Free</span><span style="font-size:15px;color:#8a93a0;">forever</span></div>
+          <p style="margin:10px 0 22px;font-size:14.5px;color:#5b6472;line-height:1.5;">For small operators getting started. Up to 5 vehicles.</p>
+          <div style="display:flex;flex-direction:column;gap:11px;font-size:14.5px;color:#3a414d;border-top:1px solid #eef0f3;padding-top:20px;">
+            <span>✓&nbsp;&nbsp;Up to 5 vehicles</span>
+            <span>✓&nbsp;&nbsp;Fleet &amp; bookings</span>
+            <span>✓&nbsp;&nbsp;Customer portal &amp; chat</span>
+            <span style="color:#b3bac4;">—&nbsp;&nbsp;Tolls &amp; fines sync</span>
+            <span style="color:#b3bac4;">—&nbsp;&nbsp;AI &amp; analytics</span>
+            <span style="color:#b3bac4;">—&nbsp;&nbsp;API access</span>
+          </div>
+          <a href="#contact" style="text-align:center;background:#fff;color:var(--blue);border:1.5px solid #d6dbe4;border-radius:10px;padding:13px;font-weight:600;font-size:15px;text-decoration:none;margin-top:26px;">Start free</a>
+        </div>
+        <!-- Basic -->
+        <div style="background:#fff;border:1px solid #e4e8ee;border-radius:18px;padding:32px;display:flex;flex-direction:column;">
+          <span style="font-size:14px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:#5b6472;">Basic</span>
+          <div style="display:flex;align-items:baseline;gap:6px;margin-top:14px;"><span style="font-size:40px;font-weight:700;letter-spacing:-0.03em;color:#14181F;">$1,000</span><span style="font-size:15px;color:#8a93a0;">/yr</span></div>
+          <p style="margin:10px 0 22px;font-size:14.5px;color:#5b6472;line-height:1.5;">Unlimited fleet with compliance built in.</p>
+          <div style="display:flex;flex-direction:column;gap:11px;font-size:14.5px;color:#3a414d;border-top:1px solid #eef0f3;padding-top:20px;">
+            <span>✓&nbsp;&nbsp;Unlimited vehicles</span>
+            <span>✓&nbsp;&nbsp;Everything in Starter</span>
+            <span>✓&nbsp;&nbsp;Tolls &amp; fines sync</span>
+            <span style="color:#b3bac4;">—&nbsp;&nbsp;Premium support</span>
+            <span style="color:#b3bac4;">—&nbsp;&nbsp;AI &amp; analytics</span>
+            <span style="color:#b3bac4;">—&nbsp;&nbsp;API access</span>
+          </div>
+          <a href="#contact" style="text-align:center;background:#fff;color:var(--blue);border:1.5px solid #d6dbe4;border-radius:10px;padding:13px;font-weight:600;font-size:15px;text-decoration:none;margin-top:26px;">Choose Basic</a>
+        </div>
+        <!-- Pro -->
+        <div style="background:var(--blue);border:1px solid var(--blue);border-radius:18px;padding:32px;display:flex;flex-direction:column;position:relative;box-shadow:0 30px 70px -34px rgba(27,61,151,0.7);">
+          <span style="position:absolute;top:22px;right:22px;font-size:11px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:#0f2a5e;background:var(--mint);padding:5px 11px;border-radius:30px;">Most complete</span>
+          <span style="font-size:14px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:#bcd0f3;">Pro</span>
+          <div style="display:flex;align-items:baseline;gap:6px;margin-top:14px;"><span style="font-size:40px;font-weight:700;letter-spacing:-0.03em;color:#fff;">$2,000</span><span style="font-size:15px;color:#9fb6e6;">/yr</span></div>
+          <p style="margin:10px 0 22px;font-size:14.5px;color:#c4d3ee;line-height:1.5;">Monetizes the data layer with AI, analytics and API.</p>
+          <div style="display:flex;flex-direction:column;gap:11px;font-size:14.5px;color:#e8eefb;border-top:1px solid rgba(255,255,255,0.16);padding-top:20px;">
+            <span>✓&nbsp;&nbsp;Unlimited vehicles</span>
+            <span>✓&nbsp;&nbsp;Everything in Basic</span>
+            <span>✓&nbsp;&nbsp;Premium support</span>
+            <span>✓&nbsp;&nbsp;AI &amp; analytics</span>
+            <span>✓&nbsp;&nbsp;API access</span>
+            <span>✓&nbsp;&nbsp;Data import &amp; onboarding</span>
+          </div>
+          <a href="#contact" style="text-align:center;background:var(--mint);color:#0f2a5e;border-radius:10px;padding:13px;font-weight:700;font-size:15px;text-decoration:none;margin-top:26px;">Choose Pro</a>
+        </div>
+      </div>
+      <p style="margin:26px auto 0;text-align:center;font-size:14.5px;color:#7a828f;max-width:64ch;"><span style="color:var(--coral);font-weight:600;">+ Additional stream (Stage 2):</span> insurance commissions from bundled coverage at point-of-rental ride on top of every subscription tier.</p>
+    </div>
+  </section>
+
+  <!-- ============ INVEST ============ -->
+  <section id="invest" data-sec data-idx="3" style="padding:clamp(80px,9vw,130px) clamp(20px,5vw,72px);background:var(--blue);color:#fff;">
+    <div style="max-width:1180px;margin:0 auto;">
+      <span style="font-size:13px;font-weight:600;letter-spacing:0.18em;text-transform:uppercase;color:var(--mint);">Investment opportunity</span>
+      <h2 style="margin:16px 0 0;font-size:clamp(34px,4.8vw,60px);line-height:1.03;font-weight:600;letter-spacing:-0.03em;max-width:20ch;color:#fff;">We're raising $200,000 for a 20% stake.</h2>
+      <p style="margin:20px 0 0;max-width:60ch;font-size:18px;line-height:1.55;color:#c6d4ef;">Goal: operational profitability within six months. Investor returns via dividends, share buy-backs or secondary sales.</p>
+
+      <div class="wh-invest-grid" style="display:grid;grid-template-columns:0.9fr 1.1fr;gap:28px;margin-top:48px;align-items:start;">
+        <div style="display:flex;flex-direction:column;gap:18px;">
+          <div style="background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.16);border-radius:16px;padding:28px;">
+            <span style="font-size:13px;letter-spacing:0.04em;color:#a9bce4;">Raise</span>
+            <div style="font-size:46px;font-weight:700;letter-spacing:-0.03em;margin-top:6px;color:#fff;">US$200k</div>
+            <span style="font-size:15px;color:#c6d4ef;">for 20% of the UAE entity</span>
+          </div>
+          <div style="background:var(--mint);border-radius:16px;padding:28px;color:#0f2a5e;">
+            <span style="font-size:13px;letter-spacing:0.04em;color:#2a4a86;">Minimum ticket</span>
+            <div style="font-size:46px;font-weight:700;letter-spacing:-0.03em;margin-top:6px;">US$10k</div>
+            <span style="font-size:15px;color:#2a4a86;">= 1% equity</span>
+          </div>
+        </div>
+
+        <div style="background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.16);border-radius:16px;padding:30px 32px;">
+          <span style="font-size:13px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:#a9bce4;">Use of funds</span>
+          <div style="display:flex;flex-direction:column;gap:22px;margin-top:24px;">
+            {% for f in funds %}
+            <div>
+              <div style="display:flex;justify-content:space-between;align-items:baseline;margin-bottom:9px;">
+                <span style="font-size:16px;font-weight:500;color:#eaf0fb;">{{ f.label }}</span>
+                <span style="font-size:16px;font-weight:700;color:#fff;">{{ f.amount }}</span>
+              </div>
+              <div style="height:11px;border-radius:30px;background:rgba(255,255,255,0.13);overflow:hidden;">
+                <div style="height:100%;width:{{ f.pct }};border-radius:30px;background:{{ f.color }};"></div>
+              </div>
+            </div>
+            {% endfor %}
+          </div>
+        </div>
+      </div>
+
+      <div style="display:flex;flex-wrap:wrap;gap:14px;margin-top:30px;">
+        <div style="flex:1;min-width:220px;background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.14);border-radius:14px;padding:20px 24px;">
+          <span style="font-size:13px;color:#a9bce4;">UAE car rental SaaS revenue</span>
+          <div style="font-size:22px;font-weight:700;margin-top:5px;color:#fff;">$3.8M <span style="color:var(--mint);">→</span> $5.97M</div>
+          <span style="font-size:13px;color:#c6d4ef;">2026 to 2030</span>
+        </div>
+        <div style="flex:1;min-width:220px;background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.14);border-radius:14px;padding:20px 24px;">
+          <span style="font-size:13px;color:#a9bce4;">Market growth</span>
+          <div style="font-size:22px;font-weight:700;margin-top:5px;color:#fff;">11.4% CAGR</div>
+          <span style="font-size:13px;color:#c6d4ef;">+53.86% over four years</span>
+        </div>
+        <div style="flex:1;min-width:220px;background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.14);border-radius:14px;padding:20px 24px;">
+          <span style="font-size:13px;color:#a9bce4;">Status</span>
+          <div style="font-size:22px;font-weight:700;margin-top:5px;color:#fff;">MVP live</div>
+          <span style="font-size:13px;color:#c6d4ef;">in testing with first adopter</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ CONTACT ============ -->
+  <section id="contact" data-sec data-idx="4" style="padding:clamp(80px,9vw,128px) clamp(20px,5vw,72px);background:#fff;">
+    <div style="max-width:1180px;margin:0 auto;">
+      <div style="text-align:center;">
+        <span style="font-size:13px;font-weight:600;letter-spacing:0.18em;text-transform:uppercase;color:var(--blue);">Let's talk</span>
+        <h2 style="margin:16px auto 0;font-size:clamp(32px,4.4vw,56px);line-height:1.04;font-weight:600;letter-spacing:-0.03em;max-width:20ch;color:#14181F;">Let's build the next stage together.</h2>
+        <p style="margin:18px auto 0;max-width:56ch;font-size:18px;line-height:1.55;color:#5b6472;">Book a product demo or request the investor materials — deeper financial projections, technical diligence and customer references on request.</p>
+      </div>
+
+      <div class="wh-contact-grid" style="display:grid;grid-template-columns:1.15fr 0.85fr;gap:24px;margin-top:46px;align-items:start;">
+        <!-- form / success -->
+        <div style="background:#F8FAFB;border:1px solid #e7ebf0;border-radius:20px;padding:clamp(26px,3vw,40px);">
+          <form id="contactForm" style="display:flex;flex-direction:column;gap:18px;">
+            <input type="hidden" name="interest" id="interestField" value="demo" />
+            <div style="display:flex;gap:8px;background:#fff;border:1px solid #e1e6ec;border-radius:11px;padding:5px;">
+              <button type="button" data-interest="demo" class="wh-toggle" style="flex:1;border:none;border-radius:8px;padding:11px;font-size:14.5px;font-weight:600;cursor:pointer;transition:all .2s ease;background:var(--blue);color:#fff;">Book a demo</button>
+              <button type="button" data-interest="invest" class="wh-toggle" style="flex:1;border:none;border-radius:8px;padding:11px;font-size:14.5px;font-weight:600;cursor:pointer;transition:all .2s ease;background:transparent;color:#5b6472;">Invest</button>
+            </div>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;">
+              <label style="display:flex;flex-direction:column;gap:7px;font-size:13.5px;font-weight:600;color:#3a414d;">Name
+                <input type="text" name="name" required placeholder="Your full name" style="border:1px solid #d8dee6;border-radius:10px;padding:13px 14px;font-size:15px;color:#14181F;background:#fff;outline:none;font-weight:400;" />
+              </label>
+              <label style="display:flex;flex-direction:column;gap:7px;font-size:13.5px;font-weight:600;color:#3a414d;">Company
+                <input type="text" name="company" placeholder="Rental company" style="border:1px solid #d8dee6;border-radius:10px;padding:13px 14px;font-size:15px;color:#14181F;background:#fff;outline:none;font-weight:400;" />
+              </label>
+            </div>
+            <label style="display:flex;flex-direction:column;gap:7px;font-size:13.5px;font-weight:600;color:#3a414d;">Email
+              <input type="email" name="email" required placeholder="you@company.com" style="border:1px solid #d8dee6;border-radius:10px;padding:13px 14px;font-size:15px;color:#14181F;background:#fff;outline:none;font-weight:400;" />
+            </label>
+            <label style="display:flex;flex-direction:column;gap:7px;font-size:13.5px;font-weight:600;color:#3a414d;">Message
+              <textarea name="message" rows="4" placeholder="Tell us about your fleet, or how much you're looking to invest." style="border:1px solid #d8dee6;border-radius:10px;padding:13px 14px;font-size:15px;color:#14181F;background:#fff;outline:none;resize:vertical;font-weight:400;line-height:1.5;"></textarea>
+            </label>
+            <button type="submit" id="submitBtn" style="background:var(--blue);color:#fff;border:none;border-radius:11px;padding:15px;font-weight:600;font-size:16px;cursor:pointer;box-shadow:0 14px 30px -16px rgba(27,61,151,0.7);">Book my demo</button>
+            <span id="formError" style="display:none;font-size:13px;color:#c0392b;text-align:center;"></span>
+            <span style="font-size:12.5px;color:#8a93a0;text-align:center;">Instant — we reply within one business day. No spam, ever.</span>
+          </form>
+          <div id="contactSuccess" style="display:none;flex-direction:column;align-items:center;text-align:center;padding:26px 10px;">
+            <span style="display:flex;align-items:center;justify-content:center;width:62px;height:62px;border-radius:50%;background:var(--mint);color:#0f2a5e;font-size:30px;font-weight:700;">✓</span>
+            <h3 id="successTitle" style="margin:22px 0 0;font-size:24px;font-weight:600;letter-spacing:-0.02em;color:#14181F;">Thanks — message sent!</h3>
+            <p id="successBody" style="margin:12px 0 0;max-width:40ch;font-size:15.5px;line-height:1.55;color:#5b6472;"></p>
+            <button type="button" id="resetBtn" style="margin-top:24px;background:#fff;color:var(--blue);border:1.5px solid #d6dbe4;border-radius:10px;padding:12px 24px;font-weight:600;font-size:15px;cursor:pointer;">Send another</button>
+          </div>
+        </div>
+
+        <!-- founder card -->
+        <div style="display:flex;flex-direction:column;gap:14px;">
+          <div style="background:#fff;border:1px solid #e7ebf0;border-radius:20px;padding:30px;">
+            <div style="display:flex;align-items:center;gap:14px;">
+              <span style="display:flex;align-items:center;justify-content:center;width:54px;height:54px;border-radius:14px;background:var(--blue);color:#fff;font-weight:700;font-size:19px;letter-spacing:0.02em;">SK</span>
+              <div>
+                <div style="font-size:18px;font-weight:600;color:#14181F;">Sergey Kanafyev</div>
+                <div style="font-size:14px;color:#5b6472;">Founder &amp; CEO</div>
+              </div>
+            </div>
+            <div style="display:flex;flex-direction:column;gap:2px;margin-top:24px;">
+              <a href="mailto:sergeykanafyev@gmail.com" style="display:flex;justify-content:space-between;align-items:center;padding:14px 0;border-top:1px solid #eef0f3;text-decoration:none;">
+                <span style="font-size:13px;color:#8a93a0;letter-spacing:0.04em;">Email</span>
+                <span style="font-size:14.5px;color:#14181F;font-weight:500;">sergeykanafyev@gmail.com</span>
+              </a>
+              <a href="https://wa.me/6281237702160" style="display:flex;justify-content:space-between;align-items:center;padding:14px 0;border-top:1px solid #eef0f3;text-decoration:none;">
+                <span style="font-size:13px;color:#8a93a0;letter-spacing:0.04em;">WhatsApp</span>
+                <span style="font-size:14.5px;color:#14181F;font-weight:500;">+62 812 3770 2160</span>
+              </a>
+              <a href="https://t.me/kanafyev" style="display:flex;justify-content:space-between;align-items:center;padding:14px 0;border-top:1px solid #eef0f3;text-decoration:none;">
+                <span style="font-size:13px;color:#8a93a0;letter-spacing:0.04em;">Telegram</span>
+                <span style="font-size:14.5px;color:#14181F;font-weight:500;">t.me/kanafyev</span>
+              </a>
+              <a href="https://wheele.rs" style="display:flex;justify-content:space-between;align-items:center;padding:14px 0;border-top:1px solid #eef0f3;text-decoration:none;">
+                <span style="font-size:13px;color:#8a93a0;letter-spacing:0.04em;">Website</span>
+                <span style="font-size:14.5px;color:var(--blue);font-weight:600;">wheele.rs</span>
+              </a>
+            </div>
+          </div>
+          <div style="background:var(--blue);border-radius:20px;padding:26px 30px;color:#fff;">
+            <div style="font-size:16px;font-weight:600;">Built by operators &amp; engineers</div>
+            <p style="margin:8px 0 0;font-size:14px;line-height:1.55;color:#c6d4ef;">Sixty-plus years combined across startups, scalable systems, mobile, design and UAE rental operations.</p>
+          </div>
+        </div>
+      </div>
+
+      <footer style="margin-top:64px;padding-top:30px;border-top:1px solid #eef0f3;display:flex;flex-wrap:wrap;gap:14px;justify-content:space-between;align-items:center;">
+        <div style="display:flex;align-items:center;gap:10px;">
+          <span style="width:28px;height:28px;border-radius:7px;background:var(--blue);display:flex;align-items:center;justify-content:center;color:#fff;font-weight:700;font-size:14px;">W</span>
+          <span style="font-weight:700;font-size:16px;color:#14181F;">wheele.rs</span>
+        </div>
+        <span style="font-size:13.5px;color:#8a93a0;">A full-stack SaaS platform for the UAE's car rental operators.</span>
+        <span style="font-size:13.5px;color:#8a93a0;">© 2026 Wheelers</span>
+      </footer>
+    </div>
+  </section>
+
+</div>
+
+<script>
+(function () {
+  // ---- Scroll-spy dot nav ----
+  var dots = Array.prototype.slice.call(document.querySelectorAll('[data-dot]'));
+  var sections = Array.prototype.slice.call(document.querySelectorAll('[data-sec]'));
+  function setActive(idx) {
+    dots.forEach(function (dot) {
+      var on = Number(dot.getAttribute('data-dot')) === idx;
+      dot.style.width = on ? '11px' : '9px';
+      dot.style.height = on ? '11px' : '9px';
+      dot.style.background = on ? 'var(--blue)' : '#cdd3dc';
+    });
+  }
+  if ('IntersectionObserver' in window) {
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (e.isIntersecting) {
+          var i = Number(e.target.getAttribute('data-idx'));
+          if (!Number.isNaN(i)) setActive(i);
+        }
+      });
+    }, { rootMargin: '-45% 0px -45% 0px', threshold: 0 });
+    sections.forEach(function (s) { io.observe(s); });
+  }
+  setActive(0);
+
+  // ---- Contact form: interest toggle ----
+  var interest = 'demo';
+  var interestField = document.getElementById('interestField');
+  var submitBtn = document.getElementById('submitBtn');
+  var onStyle = 'background:var(--blue);color:#fff;';
+  var offStyle = 'background:transparent;color:#5b6472;';
+  var base = 'flex:1;border:none;border-radius:8px;padding:11px;font-size:14.5px;font-weight:600;cursor:pointer;transition:all .2s ease;';
+
+  document.querySelectorAll('.wh-toggle').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      interest = btn.getAttribute('data-interest');
+      interestField.value = interest;
+      document.querySelectorAll('.wh-toggle').forEach(function (b) {
+        b.style.cssText = base + (b.getAttribute('data-interest') === interest ? onStyle : offStyle);
+      });
+      submitBtn.textContent = interest === 'invest' ? 'Request investor materials' : 'Book my demo';
+    });
+  });
+
+  // ---- Contact form: submit via SMTP-backed /contact endpoint ----
+  var form = document.getElementById('contactForm');
+  var success = document.getElementById('contactSuccess');
+  var errorEl = document.getElementById('formError');
+
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    errorEl.style.display = 'none';
+    var data = new FormData(form);
+    var name = (data.get('name') || '').trim();
+    var isInvest = interest === 'invest';
+    submitBtn.disabled = true;
+    var original = submitBtn.textContent;
+    submitBtn.textContent = 'Sending…';
+
+    fetch('/contact', { method: 'POST', body: data })
+      .then(function (r) { return r.json().then(function (j) { return { ok: r.ok, body: j }; }); })
+      .then(function (res) {
+        if (!res.ok || !res.body.ok) {
+          throw new Error((res.body && res.body.error) || 'Something went wrong.');
+        }
+        document.getElementById('successTitle').textContent = name ? ('Thanks, ' + name + '!') : 'Thanks — message sent!';
+        document.getElementById('successBody').textContent = isInvest
+          ? 'We’ll send the investor materials and financial projections to your inbox within one business day.'
+          : 'We’ll be in touch within one business day to schedule your Wheelers demo.';
+        form.style.display = 'none';
+        success.style.display = 'flex';
+      })
+      .catch(function (err) {
+        errorEl.textContent = err.message;
+        errorEl.style.display = 'block';
+      })
+      .finally(function () {
+        submitBtn.disabled = false;
+        submitBtn.textContent = original;
+      });
+  });
+
+  document.getElementById('resetBtn').addEventListener('click', function () {
+    form.reset();
+    interest = 'demo';
+    interestField.value = 'demo';
+    document.querySelectorAll('.wh-toggle').forEach(function (b) {
+      b.style.cssText = base + (b.getAttribute('data-interest') === 'demo' ? onStyle : offStyle);
+    });
+    submitBtn.textContent = 'Book my demo';
+    success.style.display = 'none';
+    form.style.display = 'flex';
+  });
+})();
+</script>
+</body>
+</html>
