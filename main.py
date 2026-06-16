@@ -51,7 +51,7 @@ BRAND = {
 # Right-rail scroll-spy dots / nav anchors.
 NAV = [
     {"href": "#top", "label": "Home"},
-    {"href": "#platform", "label": "Platform"},
+    {"href": "#platform", "label": "Product"},
     {"href": "#pricing", "label": "Pricing"},
     {"href": "#invest", "label": "Invest"},
     {"href": "#contact", "label": "Contact"},
@@ -73,14 +73,6 @@ CAPS = [
      "desc": "Platform-wide AI agents and automated support chatbots, 24/7."},
 ]
 
-# Use-of-funds breakdown for the investment section.
-FUNDS = [
-    {"label": "Product development", "amount": "US$117,000", "pct": "58.5%", "color": "var(--mint)"},
-    {"label": "Marketing", "amount": "US$57,500", "pct": "28.75%", "color": "#9bd9cb"},
-    {"label": "Legal", "amount": "US$20,000", "pct": "10%", "color": "var(--coral)"},
-    {"label": "Operating buffer", "amount": "US$5,500", "pct": "4%", "color": "#c7d2ea"},
-]
-
 app = FastAPI(title="Wheelers Landing")
 app.mount("/static", StaticFiles(directory="static"), name="static")
 templates = Jinja2Templates(directory="templates")
@@ -91,24 +83,21 @@ async def index(request: Request):
     return templates.TemplateResponse(
         request,
         "index.html",
-        {"brand": BRAND, "nav": NAV, "caps": CAPS, "funds": FUNDS},
+        {"brand": BRAND, "nav": NAV, "caps": CAPS},
     )
 
 
-async def send_contact_email(interest: str, name: str, company: str, email: str, message: str) -> None:
+async def send_contact_email(name: str, email: str, message: str) -> None:
     """Relay a contact submission through the configured SMTP server."""
-    kind = "Investor enquiry" if interest == "invest" else "Demo request"
     msg = EmailMessage()
-    msg["Subject"] = f"[Wheelers] {kind} — {name or email}"
+    msg["Subject"] = f"[Wheelers] New enquiry — {name or email}"
     msg["From"] = settings.mail_from
     msg["To"] = settings.contact_to
     if email:
         msg["Reply-To"] = email
     msg.set_content(
-        f"New {kind.lower()} from the Wheelers landing page.\n\n"
-        f"Interest: {interest}\n"
+        f"New enquiry from the Wheelers landing page.\n\n"
         f"Name:     {name}\n"
-        f"Company:  {company}\n"
         f"Email:    {email}\n\n"
         f"Message:\n{message or '(none)'}\n"
     )
@@ -126,9 +115,7 @@ async def send_contact_email(interest: str, name: str, company: str, email: str,
 
 @app.post("/contact")
 async def contact(
-    interest: str = Form("demo"),
     name: str = Form(""),
-    company: str = Form(""),
     email: EmailStr = Form(...),
     message: str = Form(""),
 ):
@@ -139,7 +126,7 @@ async def contact(
         return JSONResponse({"ok": True, "delivered": False})
 
     try:
-        await send_contact_email(interest, name, company, str(email), message)
+        await send_contact_email(name, str(email), message)
     except Exception:  # noqa: BLE001 — surface a clean error to the client, log the detail
         logger.exception("Failed to relay contact email")
         return JSONResponse(
