@@ -67,14 +67,14 @@ jobs:
           --name ${{ env.CONTAINER_NAME }} \
           --restart unless-stopped \
           --publish ${{ env.REMOTE_HTTP_HOST }}:${{ env.REMOTE_HTTP_PORT }}:8000 \
-          -e SMTP_HOST=${{ secrets.SMTP_HOST }} \
-          -e SMTP_PORT=${{ secrets.SMTP_PORT }} \
-          -e SMTP_USER=${{ secrets.SMTP_USER }} \
-          -e SMTP_PASSWORD=${{ secrets.SMTP_PASSWORD }} \
-          -e SMTP_START_TLS=${{ secrets.SMTP_START_TLS }} \
-          -e SMTP_USE_TLS=${{ secrets.SMTP_USE_TLS }} \
-          -e MAIL_FROM=${{ secrets.MAIL_FROM }} \
-          -e CONTACT_TO=${{ secrets.CONTACT_TO }} \
+          -e SMTP_HOST="${{ secrets.SMTP_HOST }}" \
+          -e SMTP_PORT="${{ secrets.SMTP_PORT }}" \
+          -e SMTP_USER="${{ secrets.SMTP_USER }}" \
+          -e SMTP_PASSWORD="${{ secrets.SMTP_PASSWORD }}" \
+          -e SMTP_START_TLS="${{ secrets.SMTP_START_TLS }}" \
+          -e SMTP_USE_TLS="${{ secrets.SMTP_USE_TLS }}" \
+          -e MAIL_FROM="${{ secrets.MAIL_FROM }}" \
+          -e CONTACT_TO="${{ secrets.CONTACT_TO }}" \
           ${{ env.IMAGE_NAME }}:${{ env.IMAGE_TAG }}
 
           docker ps --filter name=${{ env.CONTAINER_NAME }}
