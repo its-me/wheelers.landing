@@ -314,7 +314,7 @@
           <span style="font-weight:700;font-size:16px;color:#14181F;">Wheelers</span>
         </div>
         <span style="font-size:13.5px;color:#8a93a0;">A full-stack SaaS platform for the UAE's car rental operators.</span>
-        <span style="font-size:13.5px;color:#8a93a0;">© 2026 Wheelers</span>
+        <span style="font-size:13.5px;color:#8a93a0;">© <span id="wh-year">2026</span> Wheelers</span>
       </footer>
     </div>
   </section>
@@ -388,6 +388,8 @@
     success.style.display = 'none';
     form.style.display = 'flex';
   });
+
+  document.getElementById('wh-year').textContent = new Date().getFullYear();
 
   // ---- Contact obfuscation: decoded at runtime to keep details out of raw HTML ----
   (function () {
