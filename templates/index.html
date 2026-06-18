@@ -278,17 +278,17 @@
               </div>
             </div>
             <div style="display:flex;flex-direction:column;gap:2px;margin-top:24px;">
-              <a href="mailto:sergeykanafyev@gmail.com" style="display:flex;justify-content:space-between;align-items:center;padding:14px 0;border-top:1px solid #eef0f3;text-decoration:none;">
+              <a id="wh-email-link" href="#" style="display:flex;justify-content:space-between;align-items:center;padding:14px 0;border-top:1px solid #eef0f3;text-decoration:none;">
                 <span style="font-size:14px;color:#8a93a0;letter-spacing:0.04em;">Email</span>
-                <span style="font-size:14px;color:var(--ink2);font-weight:500;">sergeykanafyev@gmail.com</span>
+                <span id="wh-email-txt" style="font-size:14px;color:var(--ink2);font-weight:500;"></span>
               </a>
-              <a href="https://wa.me/6281237702160" style="display:flex;justify-content:space-between;align-items:center;padding:14px 0;border-top:1px solid #eef0f3;text-decoration:none;">
+              <a id="wh-wa-link" href="#" style="display:flex;justify-content:space-between;align-items:center;padding:14px 0;border-top:1px solid #eef0f3;text-decoration:none;">
                 <span style="font-size:14px;color:#8a93a0;letter-spacing:0.04em;">WhatsApp</span>
-                <span style="font-size:14px;color:var(--ink2);font-weight:500;">+62 812 3770 2160</span>
+                <span id="wh-wa-txt" style="font-size:14px;color:var(--ink2);font-weight:500;"></span>
               </a>
-              <a href="https://t.me/kanafyev" style="display:flex;justify-content:space-between;align-items:center;padding:14px 0;border-top:1px solid #eef0f3;text-decoration:none;">
+              <a id="wh-tg-link" href="#" style="display:flex;justify-content:space-between;align-items:center;padding:14px 0;border-top:1px solid #eef0f3;text-decoration:none;">
                 <span style="font-size:14px;color:#8a93a0;letter-spacing:0.04em;">Telegram</span>
-                <span style="font-size:14px;color:var(--ink2);font-weight:500;">@kanafyev</span>
+                <span id="wh-tg-txt" style="font-size:14px;color:var(--ink2);font-weight:500;"></span>
               </a>
               <a href="https://wheele.rs" style="display:flex;justify-content:space-between;align-items:center;padding:14px 0;border-top:1px solid #eef0f3;text-decoration:none;">
                 <span style="font-size:14px;color:#8a93a0;letter-spacing:0.04em;">Website</span>
@@ -388,6 +388,21 @@
     success.style.display = 'none';
     form.style.display = 'flex';
   });
+
+  // ---- Contact obfuscation: decoded at runtime to keep details out of raw HTML ----
+  (function () {
+    var c = [
+      ['wh-email-link', 'wh-email-txt', 'bWFpbHRvOnNlcmdleWthbmFmeWV2QGdtYWlsLmNvbQ==', 'c2VyZ2V5a2FuYWZ5ZXZAZ21haWwuY29t'],
+      ['wh-wa-link',    'wh-wa-txt',    'aHR0cHM6Ly93YS5tZS82MjgxMjM3NzAyMTYw',         'KzYyIDgxMiAzNzcwIDIxNjA='],
+      ['wh-tg-link',    'wh-tg-txt',    'aHR0cHM6Ly90Lm1lL2thbmFmeWV2',                 'QGthbmFmeWV2'],
+    ];
+    c.forEach(function (r) {
+      var a = document.getElementById(r[0]);
+      var s = document.getElementById(r[1]);
+      if (a) a.href = atob(r[2]);
+      if (s) s.textContent = atob(r[3]);
+    });
+  })();
 })();
 </script>
 </body>
