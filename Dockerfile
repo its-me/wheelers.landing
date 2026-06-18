@@ -1,6 +1,6 @@
 FROM ghcr.io/its-me/debian:uv
 
-WORKDIR /app
+WORKDIR /opt/app
 
 COPY pyproject.toml uv.lock ./
 RUN uv sync --frozen --no-dev
