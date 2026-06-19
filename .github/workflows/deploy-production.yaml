@@ -29,7 +29,7 @@ jobs:
     - name: Set variables
       run: |
         IMAGE_NAME="${{ env.REGISTRY }}/${{ github.repository }}"
-        IMAGE_TAG="${GITHUB_REF_NAME}"
+        IMAGE_TAG="${GITHUB_REF_NAME#v}"
         echo "IMAGE_NAME=$IMAGE_NAME" >> $GITHUB_ENV
         echo "IMAGE_TAG=$IMAGE_TAG" >> $GITHUB_ENV
 
