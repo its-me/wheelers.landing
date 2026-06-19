@@ -60,17 +60,17 @@ NAV = [
 # Platform capability cards.
 CAPS = [
     {"title": "Fleet Management",
-     "desc": "Real-time fleet status, vehicle utilization and proactive maintenance schedules."},
+     "desc": "Real-time fleet status, vehicle utilization, and proactive maintenance schedules."},
     {"title": "Customer Portal & Chat",
-     "desc": "Order tracking, rental history and direct chat with the operator."},
+     "desc": "Order tracking, rental history, and direct chat with the operator."},
     {"title": "Tolls & Fines Integration",
      "desc": "Smart invoicing and real-time updates for UAE tolls and traffic fines."},
     {"title": "Full Mobile Experience",
-     "desc": "A full-fledged mobile experience for both Android and iOS operators."},
+     "desc": "A full-fledged mobile experience for both Android and iOS."},
     {"title": "Integrated Insurance",
-     "desc": "Integrated insurance options woven directly into the core rental flow."},
+     "desc": "Insurance options are embedded directly into the core rental flow."},
     {"title": "AI-Driven Productivity",
-     "desc": "Platform-wide AI agents and automated support chatbots, 24/7."},
+     "desc": "Platform-wide AI agents and 24/7 automated support chatbots."},
 ]
 
 app = FastAPI(title="Wheelers Landing")
