@@ -1,7 +1,7 @@
 # Wheelers Landing
 
-Marketing site for **Wheelers** — a full-stack car-rental SaaS for the UAE.
-FastAPI + Jinja2, recreated from the Claude Design pitch-deck mockup.
+Marketing site for **Wheelers** — a car-rental SaaS for the UAE market.
+Built with FastAPI + Jinja2 + Tailwind-style utility CSS.
 
 ## Sections
 
@@ -32,7 +32,7 @@ docker run -p 8000:8000 \
   -e SMTP_PORT=587 \
   -e SMTP_USER=you@example.com \
   -e SMTP_PASSWORD=secret \
-  -e CONTACT_TO=sergeykanafyev@gmail.com \
+  -e CONTACT_TO=you@example.com \
   wheelers-landing
 ```
 
@@ -42,7 +42,7 @@ Or use an `.env` file:
 docker run -p 8000:8000 --env-file .env wheelers-landing
 ```
 
-Then open http://localhost:8000.
+Then open http://127.0.0.1:8000.
 
 ## Contact form
 
