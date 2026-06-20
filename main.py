@@ -51,13 +51,13 @@ BRAND = {
 # Right-rail scroll-spy dots / nav anchors.
 NAV = [
     {"href": "#top", "label": "Home"},
-    {"href": "#platform", "label": "Product"},
+    {"href": "#product", "label": "Product"},
     {"href": "#pricing", "label": "Pricing"},
     {"href": "#invest", "label": "Invest"},
     {"href": "#contact", "label": "Contact"},
 ]
 
-# Platform capability cards.
+# Product capability cards.
 CAPS = [
     {"title": "Fleet Management",
      "desc": "Real-time fleet status, vehicle utilization, and proactive maintenance schedules."},

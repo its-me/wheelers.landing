@@ -6,7 +6,7 @@ FastAPI + Jinja2, recreated from the Claude Design pitch-deck mockup.
 ## Sections
 
 1. **Hero** — positioning, dual CTAs, market stats, product dashboard
-2. **Platform** — three pillars + six capability cards
+2. **Product** — three pillars + six capability cards
 3. **Pricing** — Starter / Basic / Pro subscription ladder
 4. **Invest** — the $200k-for-20% raise, use-of-funds bars, market figures
 5. **Contact** — instant contact form (demo / invest toggle) + founder card
