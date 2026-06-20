@@ -105,17 +105,13 @@ async def index(request: Request):
 async def send_contact_email(name: str, email: str, message: str) -> None:
     """Relay a contact submission through the configured SMTP server."""
     msg = EmailMessage()
-    msg["Subject"] = f"[Wheelers] New enquiry — {name or email}"
+    sender = f"{name} <{email}>" if name else email
+    msg["Subject"] = f"[Wheelers] New enquiry from {sender}"
     msg["From"] = settings.mail_from
     msg["To"] = settings.contact_to
     if email:
         msg["Reply-To"] = email
-    msg.set_content(
-        f"New enquiry from the Wheelers landing page.\n\n"
-        f"Name:     {name}\n"
-        f"Email:    {email}\n\n"
-        f"Message:\n{message or '(none)'}\n"
-    )
+    msg.set_content(message or "(no message)")
 
     await aiosmtplib.send(
         msg,
