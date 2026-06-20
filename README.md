@@ -14,7 +14,7 @@ FastAPI + Jinja2, recreated from the Claude Design pitch-deck mockup.
 ## Run
 
 ```bash
-uv sync
+uv sync --group dev
 cp .env.example .env   # fill in SMTP credentials
 uv run granian --interface asgi --reload main:app
 ```
