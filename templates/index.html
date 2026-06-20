@@ -129,11 +129,9 @@
         <span style="margin-left:14px;font-size:12.5px;color:#8a93a0;background:#f0f1f4;padding:4px 14px;border-radius:6px;">wheele.rs</span>
       </div>
       <picture>
-        <source type="image/webp"
-                srcset="{{ url_for('static', path='product-mobile.webp') }} 800w,
-                        {{ url_for('static', path='product.webp') }} 2080w"
-                sizes="(max-width:860px) 100vw, 1040px">
-        <img src="{{ url_for('static', path='product.png') }}" alt="Wheelers operations dashboard" loading="lazy" decoding="async" style="display:block;width:100%;height:auto;" />
+        <source type="image/webp" media="(max-width:860px)" srcset="{{ url_for('static', path='product-mobile.webp') }}">
+        <source type="image/webp" srcset="{{ url_for('static', path='product.webp') }}">
+        <img src="{{ url_for('static', path='product.png') }}" alt="Wheelers operations dashboard" decoding="async" style="display:block;width:100%;height:auto;" />
       </picture>
     </div>
   </section>
