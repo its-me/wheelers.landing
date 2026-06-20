@@ -36,10 +36,21 @@
   input,textarea,button{font-family:inherit;}
   ::placeholder{color:#9aa3b0;}
   @keyframes whFloat{from{opacity:0;transform:translateY(18px);}to{opacity:1;transform:none;}}
+  .wh-hamburger{display:none;flex-direction:column;justify-content:center;gap:5px;width:40px;height:40px;background:transparent;border:none;cursor:pointer;padding:8px;flex:none;}
+  .wh-hamburger span{display:block;width:22px;height:2px;background:#fff;border-radius:2px;transition:transform .22s ease,opacity .22s ease;}
+  .wh-hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg);}
+  .wh-hamburger.open span:nth-child(2){opacity:0;}
+  .wh-hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg);}
+  .wh-mobile-menu{display:none;position:fixed;top:80px;left:0;right:0;z-index:59;background:var(--blue2);flex-direction:column;padding:12px 24px 24px;border-top:1px solid rgba(255,255,255,0.1);box-shadow:0 24px 48px -12px rgba(0,0,0,0.35);}
+  .wh-mobile-menu.open{display:flex;}
+  .wh-mobile-menu a{text-decoration:none;font-size:17px;font-weight:500;color:var(--green);padding:14px 0;border-bottom:1px solid rgba(255,255,255,0.08);}
+  .wh-mobile-menu a:last-child{border-bottom:none;margin-top:12px;background:var(--green);color:var(--blue2);text-align:center;padding:14px;border-radius:10px;font-weight:700;}
   @media (max-width:860px){
     .wh-grid-3{grid-template-columns:1fr !important;}
     .wh-invest-grid,.wh-contact-grid{grid-template-columns:1fr !important;}
     .wh-dotnav{display:none !important;}
+    .wh-nav-desktop{display:none !important;}
+    .wh-hamburger{display:flex !important;}
   }
 </style>
 </head>
@@ -56,13 +67,23 @@
       </span>
       <span style="font-weight:700;font-size:24px;color:#fff;letter-spacing:-0.02em;">Wheelers</span>
     </a>
-    <nav style="display:flex;align-items:center;gap:clamp(14px,2.4vw,34px);">
+    <nav class="wh-nav-desktop" style="display:flex;align-items:center;gap:clamp(14px,2.4vw,34px);">
       <a href="#platform" style="text-decoration:none;color:var(--green);font-weight:500;font-size:15px;">Product</a>
       <a href="#pricing" style="text-decoration:none;color:var(--green);font-weight:500;font-size:15px;">Pricing</a>
       <a href="#invest" style="text-decoration:none;color:var(--green);font-weight:500;font-size:15px;">Invest</a>
       <a href="#contact" style="text-decoration:none;background:var(--green);color:var(--blue2);padding:14px 20px;border-radius:9px;font-weight:600;font-size:15px;">Get in touch</a>
     </nav>
+    <button class="wh-hamburger" id="wh-hamburger" aria-label="Open menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
   </header>
+
+  <div class="wh-mobile-menu" id="wh-mobile-menu" aria-hidden="true">
+    <a href="#platform">Product</a>
+    <a href="#pricing">Pricing</a>
+    <a href="#invest">Invest</a>
+    <a href="#contact">Get in touch</a>
+  </div>
 
   <nav class="wh-dotnav" style="position:fixed;right:26px;top:50%;transform:translateY(-50%);z-index:55;display:flex;flex-direction:column;gap:14px;align-items:center;">
     {% for d in nav %}
@@ -396,6 +417,25 @@
   });
 
   document.getElementById('wh-year').textContent = new Date().getFullYear();
+
+  // ---- Mobile menu ----
+  var hamburger = document.getElementById('wh-hamburger');
+  var mobileMenu = document.getElementById('wh-mobile-menu');
+  function closeMobileMenu() {
+    hamburger.classList.remove('open');
+    hamburger.setAttribute('aria-expanded', 'false');
+    mobileMenu.classList.remove('open');
+    mobileMenu.setAttribute('aria-hidden', 'true');
+  }
+  hamburger.addEventListener('click', function () {
+    var isOpen = mobileMenu.classList.toggle('open');
+    hamburger.classList.toggle('open', isOpen);
+    hamburger.setAttribute('aria-expanded', String(isOpen));
+    mobileMenu.setAttribute('aria-hidden', String(!isOpen));
+  });
+  mobileMenu.querySelectorAll('a').forEach(function (a) {
+    a.addEventListener('click', closeMobileMenu);
+  });
 
   // ---- Contact obfuscation: decoded at runtime to keep details out of raw HTML ----
   (function () {
