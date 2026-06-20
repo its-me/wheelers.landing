@@ -15,7 +15,6 @@ from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
 from pydantic import EmailStr
 from pydantic_settings import BaseSettings, SettingsConfigDict
-from starlette.middleware.proxy_headers import ProxyHeadersMiddleware
 
 logger = logging.getLogger("wheelers")
 
@@ -74,8 +73,22 @@ CAPS = [
      "desc": "Platform-wide AI agents and 24/7 automated support chatbots."},
 ]
 
+class _ProxySchemeMiddleware:
+    """Propagate X-Forwarded-Proto so url_for generates https:// behind a TLS proxy."""
+    def __init__(self, app):
+        self.app = app
+
+    async def __call__(self, scope, receive, send):
+        if scope["type"] in ("http", "websocket"):
+            headers = dict(scope["headers"])
+            proto = headers.get(b"x-forwarded-proto", b"").decode().strip()
+            if proto:
+                scope["scheme"] = proto
+        await self.app(scope, receive, send)
+
+
 app = FastAPI(title="Wheelers Landing")
-app.add_middleware(ProxyHeadersMiddleware, trusted_hosts="*")
+app.add_middleware(_ProxySchemeMiddleware)
 app.mount("/static", StaticFiles(directory="static"), name="static")
 templates = Jinja2Templates(directory="templates")
 
