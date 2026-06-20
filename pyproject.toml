@@ -5,7 +5,7 @@ description = "Wheelers landing page — a full-stack rental SaaS marketing site
 readme = "README.md"
 requires-python = ">=3.11"
 dependencies = [
-    "fastapi>=0.115",
+    "fastapi>=0.138.0",
     "pydantic[email]>=2.4",
     "granian>=1.5",
     "jinja2>=3.1",
