@@ -15,6 +15,7 @@ from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
 from pydantic import EmailStr
 from pydantic_settings import BaseSettings, SettingsConfigDict
+from starlette.middleware.proxy_headers import ProxyHeadersMiddleware
 
 logger = logging.getLogger("wheelers")
 
@@ -74,6 +75,7 @@ CAPS = [
 ]
 
 app = FastAPI(title="Wheelers Landing")
+app.add_middleware(ProxyHeadersMiddleware, trusted_hosts="*")
 app.mount("/static", StaticFiles(directory="static"), name="static")
 templates = Jinja2Templates(directory="templates")
 
