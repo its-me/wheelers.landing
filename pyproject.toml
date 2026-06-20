@@ -11,7 +11,7 @@ dependencies = [
     "jinja2>=3.1",
     "python-multipart>=0.0.9",
     "aiosmtplib>=3.0",
-    "pydantic-settings>=2.4",
+    "pydantic-settings>=2.14.2",
 ]
 
 [tool.uv]
