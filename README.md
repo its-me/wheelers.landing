@@ -16,7 +16,7 @@ FastAPI + Jinja2, recreated from the Claude Design pitch-deck mockup.
 ```bash
 uv sync
 cp .env.example .env   # fill in SMTP credentials
-uv run uvicorn main:app --reload
+uv run granian --interface asgi --reload main:app
 ```
 
 Then open http://127.0.0.1:8000.
