@@ -6,7 +6,7 @@ readme = "README.md"
 requires-python = ">=3.11"
 dependencies = [
     "fastapi>=0.115",
-    "pydantic[email]>=2.4",
+    "pydantic[email]>=2.13.4",
     "granian>=1.5",
     "jinja2>=3.1",
     "python-multipart>=0.0.9",

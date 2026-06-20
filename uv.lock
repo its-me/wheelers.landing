@@ -597,7 +597,7 @@ requires-dist = [
     { name = "fastapi", specifier = ">=0.115" },
     { name = "granian", specifier = ">=1.5" },
     { name = "jinja2", specifier = ">=3.1" },
-    { name = "pydantic", extras = ["email"], specifier = ">=2.4" },
+    { name = "pydantic", extras = ["email"], specifier = ">=2.13.4" },
     { name = "pydantic-settings", specifier = ">=2.14.2" },
     { name = "python-multipart", specifier = ">=0.0.9" },
 ]
