@@ -1,13 +1,13 @@
 [project]
 name = "wheelers-landing"
 version = "0.1.0"
-description = "Wheelers landing page — a full-stack rental SaaS marketing site for the UAE"
+description = "Wheelers landing page — a modern platform for UAE car rental operators"
 readme = "README.md"
 requires-python = ">=3.11"
 dependencies = [
     "fastapi>=0.115",
     "pydantic[email]>=2.13.4",
-    "granian>=1.5",
+    "granian>=2.7.6",
     "jinja2>=3.1",
     "python-multipart>=0.0.9",
     "aiosmtplib>=3.0",
