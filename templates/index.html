@@ -14,6 +14,7 @@
 <title>Wheelers – modern rental operations, made simple</title>
 <meta name="description" content="The modern platform for UAE car rental operators. Manage fleet, customers, contracts, tolls, fines, and insurance – on desktop, iOS and Android, powered by AI.">
 <meta name="keywords" content="car rental software, UAE fleet management, car rental SaaS, rental operations platform, Salik fines integration">
+<meta property="og:site_name" content="Wheelers">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://wheele.rs/">
 <meta property="og:title" content="Wheelers – modern rental operations, made simple">
@@ -28,6 +29,11 @@
 {
   "@context": "https://schema.org",
   "@graph": [
+    {
+      "@type": "WebSite",
+      "name": "Wheelers",
+      "url": "https://wheele.rs"
+    },
     {
       "@type": "Organization",
       "name": "Wheelers",
@@ -321,7 +327,7 @@
             <span id="formError" style="display:none;font-size:13px;color:#c0392b;text-align:center;"></span>
             <span style="font-size:14px;color:#8a93a0;text-align:center;">We reply within one business day. No spam, ever.</span>
           </form>
-          <div id="contactSuccess" style="display:none;flex-direction:column;align-items:center;text-align:center;padding:26px 10px;">
+          <div id="contactSuccess" data-nosnippet style="display:none;flex-direction:column;align-items:center;text-align:center;padding:26px 10px;">
             <span style="display:flex;align-items:center;justify-content:center;width:62px;height:62px;border-radius:50%;background:var(--mint);color:#0f2a5e;font-size:30px;font-weight:700;">✓</span>
             <h3 id="successTitle" style="margin:22px 0 0;font-size:24px;font-weight:600;letter-spacing:-0.02em;color:#14181F;">Thanks — message sent!</h3>
             <p id="successBody" style="margin:12px 0 0;max-width:40ch;font-size:15.5px;line-height:1.55;color:#5b6472;"></p>
@@ -330,7 +336,7 @@
         </div>
 
         <!-- founder card -->
-        <div style="display:flex;flex-direction:column;gap:14px;">
+        <div data-nosnippet style="display:flex;flex-direction:column;gap:14px;">
           <div style="background:#fff;border:1px solid #e7ebf0;border-radius:20px;padding:30px;">
             <div style="display:flex;align-items:center;gap:14px;">
               <span style="display:flex;align-items:center;justify-content:center;width:54px;height:54px;border-radius:14px;background:var(--blue);color:#fff;font-weight:700;font-size:19px;letter-spacing:0.02em;">SK</span>
