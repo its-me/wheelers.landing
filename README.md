@@ -1,6 +1,6 @@
 # Wheelers Landing Page
 
-Marketing site for **[Wheelers](https://wheele.rs)** — a car-rental SaaS for the UAE market.
+Marketing site for **[Wheelers](https://wheele.rs)** — a modern platform for UAE car rental operators to manage fleet, bookings, tolls, fines, and insurance across desktop, iOS, and Android.
 Built with FastAPI + Jinja2 + Tailwind-style utility CSS.
 
 ## Sections
