@@ -10,7 +10,7 @@ from email.message import EmailMessage
 
 import aiosmtplib
 from fastapi import FastAPI, Form, Request
-from fastapi.responses import JSONResponse
+from fastapi.responses import FileResponse, JSONResponse
 from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
 from pydantic import EmailStr
@@ -91,6 +91,11 @@ app = FastAPI(title="Wheelers Landing")
 app.add_middleware(_ProxySchemeMiddleware)
 app.mount("/static", StaticFiles(directory="static"), name="static")
 templates = Jinja2Templates(directory="templates")
+
+
+@app.get("/sitemap.xml", include_in_schema=False)
+async def sitemap():
+    return FileResponse("static/sitemap.xml", media_type="application/xml")
 
 
 @app.get("/")
