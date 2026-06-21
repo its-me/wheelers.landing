@@ -98,6 +98,11 @@ async def sitemap():
     return FileResponse("static/sitemap.xml", media_type="application/xml")
 
 
+@app.get("/robots.txt", include_in_schema=False)
+async def robots():
+    return FileResponse("static/robots.txt", media_type="text/plain")
+
+
 @app.get("/")
 async def index(request: Request):
     return templates.TemplateResponse(
