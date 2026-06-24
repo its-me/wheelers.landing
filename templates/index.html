@@ -84,6 +84,7 @@
     .wh-nav-desktop{display:none !important;}
     .wh-hamburger{display:flex !important;}
     .wh-br{display:none;}
+    .wh-footer-right{align-items:flex-start !important;}
   }
   /* Desktop-only line-break control to match the Figma layout; mobile wraps naturally. */
   @media (min-width:861px){
@@ -302,7 +303,7 @@
   </section>
 
   <!-- ============ CONTACT ============ -->
-  <section data-sec data-idx="4" style="padding-top:clamp(80px,9vw,128px);padding-bottom:48px;padding-left:clamp(20px,5vw,72px);padding-right:clamp(20px,5vw,72px);background:#fff;">
+  <section data-sec data-idx="4" style="padding:clamp(80px,9vw,128px) clamp(20px,5vw,72px);background:#fff;">
     <div id="contact" style="max-width:1180px;margin:0 auto;">
       <div style="text-align:center;">
         <span style="font-size:14px;font-weight:600;letter-spacing:0.18em;text-transform:uppercase;color:var(--blue);">Let's talk</span>
@@ -346,21 +347,29 @@
               </div>
             </div>
             <div style="display:flex;flex-direction:column;gap:2px;margin-top:24px;">
-              <a id="wh-email-link" href="#" style="display:flex;justify-content:space-between;align-items:center;padding:14px 0;border-top:1px solid #eef0f3;text-decoration:none;">
-                <span style="font-size:14px;color:#8a93a0;letter-spacing:0.04em;">Email</span>
-                <span id="wh-email-txt" style="font-size:14px;color:var(--ink2);font-weight:500;"></span>
-              </a>
-              <a id="wh-wa-link" href="#" style="display:flex;justify-content:space-between;align-items:center;padding:14px 0;border-top:1px solid #eef0f3;text-decoration:none;">
-                <span style="font-size:14px;color:#8a93a0;letter-spacing:0.04em;">WhatsApp</span>
-                <span id="wh-wa-txt" style="font-size:14px;color:var(--ink2);font-weight:500;"></span>
-              </a>
-              <a id="wh-tg-link" href="#" style="display:flex;justify-content:space-between;align-items:center;padding:14px 0;border-top:1px solid #eef0f3;text-decoration:none;">
-                <span style="font-size:14px;color:#8a93a0;letter-spacing:0.04em;">Telegram</span>
-                <span id="wh-tg-txt" style="font-size:14px;color:var(--ink2);font-weight:500;"></span>
-              </a>
-              <a href="https://wheele.rs" style="display:flex;justify-content:space-between;align-items:center;padding:14px 0;border-top:1px solid #eef0f3;text-decoration:none;">
+              <a href="https://its-me.github.io" target="_blank" rel="noopener" style="display:flex;justify-content:space-between;align-items:center;gap:12px;padding:14px 0;border-top:1px solid #eef0f3;text-decoration:none;">
                 <span style="font-size:14px;color:#8a93a0;letter-spacing:0.04em;">Website</span>
-                <span style="font-size:14px;color:var(--blue);font-weight:600;text-decoration:underline;">https://wheele.rs</span>
+                <span style="font-size:14px;color:var(--blue);font-weight:600;text-decoration:underline;text-align:right;word-break:break-all;">https://its-me.github.io</span>
+              </a>
+              <a href="https://www.linkedin.com/in/sergey-kanafyev" target="_blank" rel="noopener" style="display:flex;justify-content:space-between;align-items:center;gap:12px;padding:14px 0;border-top:1px solid #eef0f3;text-decoration:none;">
+                <span style="font-size:14px;color:#8a93a0;letter-spacing:0.04em;">LinkedIn</span>
+                <span style="font-size:14px;color:var(--blue);font-weight:600;text-decoration:underline;text-align:right;word-break:break-all;">https://www.linkedin.com/in/sergey-kanafyev</span>
+              </a>
+              <a href="https://github.com/its-me" target="_blank" rel="noopener" style="display:flex;justify-content:space-between;align-items:center;gap:12px;padding:14px 0;border-top:1px solid #eef0f3;text-decoration:none;">
+                <span style="font-size:14px;color:#8a93a0;letter-spacing:0.04em;">GitHub</span>
+                <span style="font-size:14px;color:var(--blue);font-weight:600;text-decoration:underline;text-align:right;word-break:break-all;">https://github.com/its-me</span>
+              </a>
+              <a id="wh-email-link" href="#" style="display:flex;justify-content:space-between;align-items:center;gap:12px;padding:14px 0;border-top:1px solid #eef0f3;text-decoration:none;">
+                <span style="font-size:14px;color:#8a93a0;letter-spacing:0.04em;">Email</span>
+                <span id="wh-email-txt" style="font-size:14px;color:var(--ink2);font-weight:500;text-align:right;word-break:break-all;"></span>
+              </a>
+              <a id="wh-wa-link" href="#" style="display:flex;justify-content:space-between;align-items:center;gap:12px;padding:14px 0;border-top:1px solid #eef0f3;text-decoration:none;">
+                <span style="font-size:14px;color:#8a93a0;letter-spacing:0.04em;">WhatsApp</span>
+                <span id="wh-wa-txt" style="font-size:14px;color:var(--ink2);font-weight:500;text-align:right;"></span>
+              </a>
+              <a id="wh-tg-link" href="#" style="display:flex;justify-content:space-between;align-items:center;gap:12px;padding:14px 0;border-top:1px solid #eef0f3;text-decoration:none;">
+                <span style="font-size:14px;color:#8a93a0;letter-spacing:0.04em;">Telegram</span>
+                <span id="wh-tg-txt" style="font-size:14px;color:var(--ink2);font-weight:500;text-align:right;"></span>
               </a>
             </div>
           </div>
@@ -370,22 +379,33 @@
           </div>
         </div>
       </div>
+    </div>
+  </section>
 
-      <footer style="margin-top:32px;padding-top:24px;border-top:1px solid #eef0f3;display:flex;flex-wrap:wrap;gap:14px;justify-content:space-between;align-items:center;">
+  <!-- ============ FOOTER ============ -->
+  <footer style="background:var(--blue2);padding:clamp(40px,5vw,64px) clamp(20px,5vw,72px);">
+    <div class="wh-footer" style="max-width:1180px;margin:0 auto;display:flex;flex-wrap:wrap;gap:24px;justify-content:space-between;align-items:flex-start;">
+      <div style="display:flex;flex-direction:column;gap:20px;">
         <div style="display:flex;align-items:center;gap:10px;">
-          <span style="width:32px;height:32px;border-radius:10px;background:var(--green-tile);display:flex;align-items:center;justify-content:center;flex:none;">
+          <span style="width:32px;height:32px;border-radius:8px;background:var(--green-tile);display:flex;align-items:center;justify-content:center;flex:none;">
             <svg width="17" height="13" viewBox="0 0 23.4992 18.125" fill="none" xmlns="http://www.w3.org/2000/svg" style="display:block;">
               <path d="M18.8318 0.0750732C19.5629 0.0751511 20.2264 0.326985 20.7605 0.619507C21.3013 0.915757 21.7837 1.29485 22.1741 1.64673C22.568 2.00181 22.8944 2.35279 23.1213 2.61353C23.2356 2.74479 23.3271 2.8554 23.3911 2.93518C23.4232 2.97511 23.4486 3.00747 23.4668 3.03101C23.4759 3.04278 23.4833 3.05247 23.4888 3.05969C23.4915 3.06329 23.4937 3.06643 23.4955 3.06885C23.4964 3.07003 23.4973 3.07101 23.4979 3.0719L23.4985 3.07312L23.4992 3.07373C23.4993 3.07397 23.4995 3.07436 22.5 3.82507L21.5009 4.57581L21.4905 4.56299C21.4804 4.54995 21.4637 4.52841 21.441 4.50012C21.3954 4.44323 21.3256 4.35838 21.236 4.25537C21.0549 4.0474 20.7998 3.77323 20.5005 3.50342C20.1976 3.23038 19.8748 2.98435 19.5599 2.81189C19.2384 2.63574 18.9953 2.57508 18.8312 2.57507C18.1571 2.57513 17.7132 2.84367 17.0886 3.30383C16.5323 3.71373 15.5846 4.51954 14.2462 4.51965C12.8962 4.51965 11.8443 3.79276 11.1585 3.34167C10.3546 2.81294 9.93463 2.57508 9.47694 2.57507C8.84081 2.57507 8.17066 2.95088 7.56592 3.50037C7.2813 3.75902 7.05015 4.02128 6.89027 4.21936C6.81113 4.31741 6.7513 4.39748 6.71326 4.45007C6.69429 4.4763 6.6806 4.49579 6.67298 4.50684C6.67056 4.51035 6.6687 4.51299 6.66749 4.51477V4.51416C6.66341 4.51108 6.59917 4.46834 5.62501 3.82507C4.5819 3.13628 4.58231 3.13571 4.58253 3.13538V3.13477L4.58375 3.13354C4.5845 3.13241 4.58523 3.13072 4.58619 3.12927C4.58813 3.12637 4.59074 3.123 4.59351 3.1189C4.59905 3.11069 4.60605 3.09995 4.61487 3.08716C4.63251 3.06159 4.65704 3.02735 4.68751 2.98523C4.74833 2.90113 4.83458 2.7857 4.94446 2.64954C5.16285 2.37894 5.48199 2.01599 5.88502 1.64978C6.65597 0.949287 7.91206 0.0750732 9.47694 0.0750732C10.8099 0.0750831 11.8574 0.80948 12.5317 1.25305C13.3242 1.77428 13.7621 2.01965 14.2462 2.01965C14.5984 2.01956 14.8429 1.85314 15.6061 1.29089C16.3011 0.778841 17.305 0.0750152 18.8318 0.0750732Z" fill="#84D1CB"/>
               <path d="M16.0375 5.54993H19.6875L16.6374 18.0499H12.6874L9.96244 9.54993L7.33744 18.0499H3.38744L0 0.700073L3.4375 0.0750732L5.62485 13.6749L8.31244 5.54993H11.7124L14.6874 13.6749L16.0375 5.54993Z" fill="#294895"/>
             </svg>
           </span>
-          <span style="font-weight:700;font-size:16px;color:#14181F;">Wheelers</span>
+          <span style="font-weight:700;font-size:16px;color:#fff;">Wheelers</span>
         </div>
-        <span style="font-size:14px;color:#8a93a0;">A complete SaaS platform for car rental operators in the UAE.</span>
-        <span style="font-size:14px;color:#8a93a0;">© <span id="wh-year">2026</span> Wheelers</span>
-      </footer>
+        <span style="font-size:13.5px;color:#c6d4ef;">A complete SaaS platform for car rental operators in the UAE.</span>
+      </div>
+      <div class="wh-footer-right" style="display:flex;flex-direction:column;align-items:flex-end;gap:20px;">
+        <a href="https://github.com/its-me/wheelers.landing/issues" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:6px;background:#24292e;color:#fff;padding:5px 10px;border-radius:5px;font-size:12px;font-weight:600;text-decoration:none;">
+          <svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor" style="display:block;"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>
+          Issue
+        </a>
+        <span style="font-size:13.5px;color:#c6d4ef;">© <span id="wh-year">2026</span> Wheelers</span>
+      </div>
     </div>
-  </section>
+  </footer>
 
 </div>
 
