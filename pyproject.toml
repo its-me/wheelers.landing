@@ -5,7 +5,7 @@ description = "Wheelers landing page — a modern platform for UAE car rental op
 readme = "README.md"
 requires-python = ">=3.11"
 dependencies = [
-    "fastapi>=0.115",
+    "fastapi>=0.138.1",
     "pydantic[email]>=2.13.4",
     "granian>=2.7.6",
     "jinja2>=3.1",
