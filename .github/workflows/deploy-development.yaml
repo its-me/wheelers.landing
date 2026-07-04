@@ -50,33 +50,51 @@ jobs:
 
     - name: Deploy to remote server
       uses: appleboy/ssh-action@v1
+      env:
+        REGISTRY: ${{ env.REGISTRY }}
+        ACTOR: ${{ github.actor }}
+        GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        IMAGE_NAME: ${{ env.IMAGE_NAME }}
+        IMAGE_TAG: ${{ env.IMAGE_TAG }}
+        CONTAINER_NAME: ${{ env.CONTAINER_NAME }}
+        REMOTE_HTTP_HOST: ${{ env.REMOTE_HTTP_HOST }}
+        REMOTE_HTTP_PORT: ${{ env.REMOTE_HTTP_PORT }}
+        SMTP_HOST: ${{ secrets.SMTP_HOST }}
+        SMTP_PORT: ${{ secrets.SMTP_PORT }}
+        SMTP_USER: ${{ secrets.SMTP_USER }}
+        SMTP_PASSWORD: ${{ secrets.SMTP_PASSWORD }}
+        SMTP_START_TLS: ${{ secrets.SMTP_START_TLS }}
+        SMTP_USE_TLS: ${{ secrets.SMTP_USE_TLS }}
+        MAIL_FROM: ${{ secrets.MAIL_FROM }}
+        CONTACT_TO: ${{ secrets.CONTACT_TO }}
       with:
         host: ${{ secrets.REMOTE_HOST }}
         username: ${{ secrets.REMOTE_USER }}
         key: ${{ secrets.ED25519_PRIVATE_KEY }}
+        envs: REGISTRY,ACTOR,GH_TOKEN,IMAGE_NAME,IMAGE_TAG,CONTAINER_NAME,REMOTE_HTTP_HOST,REMOTE_HTTP_PORT,SMTP_HOST,SMTP_PORT,SMTP_USER,SMTP_PASSWORD,SMTP_START_TLS,SMTP_USE_TLS,MAIL_FROM,CONTACT_TO
         script: |
-          echo "${{ secrets.GITHUB_TOKEN }}" | docker login ${{ env.REGISTRY }} -u ${{ github.actor }} --password-stdin
+          echo "$GH_TOKEN" | docker login $REGISTRY -u $ACTOR --password-stdin
 
-          docker pull ${{ env.IMAGE_NAME }}:${{ env.IMAGE_TAG }}
+          docker pull $IMAGE_NAME:$IMAGE_TAG
 
-          docker stop ${{ env.CONTAINER_NAME }} || true
-          docker rm ${{ env.CONTAINER_NAME }} || true
+          docker stop $CONTAINER_NAME || true
+          docker rm $CONTAINER_NAME || true
 
           docker run --detach \
-          --name ${{ env.CONTAINER_NAME }} \
+          --name $CONTAINER_NAME \
           --restart unless-stopped \
-          --publish ${{ env.REMOTE_HTTP_HOST }}:${{ env.REMOTE_HTTP_PORT }}:8000 \
-          -e SMTP_HOST="${{ secrets.SMTP_HOST }}" \
-          -e SMTP_PORT="${{ secrets.SMTP_PORT }}" \
-          -e SMTP_USER="${{ secrets.SMTP_USER }}" \
-          -e SMTP_PASSWORD="${{ secrets.SMTP_PASSWORD }}" \
-          -e SMTP_START_TLS="${{ secrets.SMTP_START_TLS }}" \
-          -e SMTP_USE_TLS="${{ secrets.SMTP_USE_TLS }}" \
-          -e MAIL_FROM="${{ secrets.MAIL_FROM }}" \
-          -e CONTACT_TO="${{ secrets.CONTACT_TO }}" \
-          ${{ env.IMAGE_NAME }}:${{ env.IMAGE_TAG }}
+          --publish $REMOTE_HTTP_HOST:$REMOTE_HTTP_PORT:8000 \
+          -e SMTP_HOST="$SMTP_HOST" \
+          -e SMTP_PORT="$SMTP_PORT" \
+          -e SMTP_USER="$SMTP_USER" \
+          -e SMTP_PASSWORD="$SMTP_PASSWORD" \
+          -e SMTP_START_TLS="$SMTP_START_TLS" \
+          -e SMTP_USE_TLS="$SMTP_USE_TLS" \
+          -e MAIL_FROM="$MAIL_FROM" \
+          -e CONTACT_TO="$CONTACT_TO" \
+          $IMAGE_NAME:$IMAGE_TAG
 
-          docker ps --filter name=${{ env.CONTAINER_NAME }}
+          docker ps --filter name=$CONTAINER_NAME
 
           docker system prune --all --force
 
