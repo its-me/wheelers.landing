@@ -603,4 +603,4 @@ requires-dist = [
 ]
 
 [package.metadata.requires-dev]
-dev = [{ name = "granian", extras = ["reload"], specifier = ">=2.7.6" }]
+dev = [{ name = "granian", extras = ["reload"], specifier = ">=2.7.9" }]
