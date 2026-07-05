@@ -18,6 +18,9 @@ jobs:
 
   deploy:
     runs-on: ubuntu-latest
+    environment:
+      name: development
+      url: https://d.wheele.rs
     permissions:
       contents: read
       packages: write
