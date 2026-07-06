@@ -20,7 +20,7 @@ jobs:
     runs-on: ubuntu-latest
     environment:
       name: development
-      url: https://d.wheele.rs
+      url: https://l.wheele.rs
     permissions:
       contents: read
       packages: write
