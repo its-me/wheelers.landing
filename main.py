@@ -53,7 +53,6 @@ NAV = [
     {"href": "#top", "label": "Home"},
     {"href": "#product", "label": "Product"},
     {"href": "#pricing", "label": "Pricing"},
-    {"href": "#invest", "label": "Invest"},
     {"href": "#contact", "label": "Contact"},
 ]
 

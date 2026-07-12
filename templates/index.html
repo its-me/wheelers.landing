@@ -79,7 +79,7 @@
   .wh-mobile-menu a:last-child{border-bottom:none;margin-top:12px;background:var(--green);color:var(--blue2);text-align:center;padding:14px;border-radius:10px;font-weight:700;}
   @media (max-width:860px){
     .wh-grid-3{grid-template-columns:1fr !important;}
-    .wh-invest-grid,.wh-contact-grid{grid-template-columns:1fr !important;}
+    .wh-contact-grid{grid-template-columns:1fr !important;}
     .wh-dotnav{display:none !important;}
     .wh-nav-desktop{display:none !important;}
     .wh-hamburger{display:flex !important;}
@@ -108,7 +108,6 @@
     <nav class="wh-nav-desktop" style="display:flex;align-items:center;gap:clamp(14px,2.4vw,34px);">
       <a href="#product" style="text-decoration:none;color:var(--green);font-weight:500;font-size:15px;">Product</a>
       <a href="#pricing" style="text-decoration:none;color:var(--green);font-weight:500;font-size:15px;">Pricing</a>
-      <a href="#invest" style="text-decoration:none;color:var(--green);font-weight:500;font-size:15px;">Invest</a>
       <a href="#contact" style="text-decoration:none;background:var(--green);color:var(--blue2);padding:14px 20px;border-radius:9px;font-weight:600;font-size:15px;">Get in touch</a>
     </nav>
     <button class="wh-hamburger" id="wh-hamburger" aria-label="Open menu" aria-expanded="false">
@@ -119,7 +118,6 @@
   <div class="wh-mobile-menu" id="wh-mobile-menu" aria-hidden="true">
     <a href="#product">Product</a>
     <a href="#pricing">Pricing</a>
-    <a href="#invest">Invest</a>
     <a href="#contact">Get in touch</a>
   </div>
 
@@ -260,52 +258,8 @@
     </div>
   </section>
 
-  <!-- ============ INVEST ============ -->
-  <section data-sec data-idx="3" style="padding:clamp(80px,9vw,130px) clamp(20px,5vw,72px);background:var(--blue2);color:#fff;">
-    <div id="invest" style="max-width:1180px;margin:0 auto;display:flex;flex-direction:column;align-items:center;">
-      <span style="font-size:14px;font-weight:600;letter-spacing:0.18em;text-transform:uppercase;color:var(--mint);text-align:center;">Investment proposal</span>
-      <h2 class="wh-dw" style="--dw:760px;margin:40px 0 0;font-size:clamp(34px,4.8vw,60px);line-height:1.03;font-weight:600;letter-spacing:-0.03em;max-width:20ch;color:#fff;text-align:center;">We're raising $200,000<br class="wh-br"> for a 20% stake</h2>
-      <p class="wh-dw" style="--dw:688px;margin:40px 0 0;max-width:57ch;font-size:20px;line-height:1.55;color:#c6d4ef;text-align:center;">We are securing capital for further product development<br class="wh-br"> and local market distribution.</p>
-
-      <div class="wh-invest-grid" style="display:grid;grid-template-columns:1fr 1fr;gap:28px;margin-top:40px;align-items:stretch;width:100%;">
-        <!-- left: raise + minimum ticket -->
-        <div style="display:flex;flex-direction:column;gap:18px;">
-          <div style="flex:1;display:flex;flex-direction:column;justify-content:center;background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.16);border-radius:16px;padding:28px;">
-            <span style="font-size:14px;letter-spacing:0.04em;color:#a9bce4;">Raise</span>
-            <div style="font-size:40px;font-weight:700;letter-spacing:-0.03em;margin-top:6px;color:#fff;">US$200k</div>
-            <span style="font-size:20px;color:#fff;margin-top:6px;">for 20% of the UAE entity</span>
-          </div>
-          <div style="flex:1;display:flex;flex-direction:column;justify-content:center;background:var(--mint);border-radius:16px;padding:28px;color:var(--blue2);">
-            <span style="font-size:14px;letter-spacing:0.04em;color:#2a4a86;">Minimum ticket</span>
-            <div style="font-size:40px;font-weight:700;letter-spacing:-0.03em;margin-top:6px;color:var(--blue2);">US$10k</div>
-            <span style="font-size:20px;color:var(--blue2);margin-top:6px;">= 1% equity</span>
-          </div>
-        </div>
-
-        <!-- right: market stat cards -->
-        <div style="display:flex;flex-direction:column;gap:14px;">
-          <div style="background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.14);border-radius:14px;padding:20px 24px;">
-            <span style="font-size:14px;color:#a9bce4;">UAE car rental SaaS revenue</span>
-            <div style="font-size:24px;font-weight:700;margin-top:5px;color:#fff;">$3.8m <span style="color:var(--mint);">→</span> $5.97m</div>
-            <span style="font-size:14px;color:#c6d4ef;">2026-2030</span>
-          </div>
-          <div style="background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.14);border-radius:14px;padding:20px 24px;">
-            <span style="font-size:14px;color:#a9bce4;">Market growth</span>
-            <div style="font-size:24px;font-weight:700;margin-top:5px;color:#fff;">11.4% CAGR</div>
-            <span style="font-size:14px;color:#c6d4ef;">+53.86% over 4 years</span>
-          </div>
-          <div style="background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.14);border-radius:14px;padding:20px 24px;">
-            <span style="font-size:14px;color:#a9bce4;">Status</span>
-            <div style="font-size:24px;font-weight:700;margin-top:5px;color:#fff;">MVP live</div>
-            <span style="font-size:14px;color:#c6d4ef;">and testing with an early adopter</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
   <!-- ============ CONTACT ============ -->
-  <section data-sec data-idx="4" style="padding:clamp(80px,9vw,128px) clamp(20px,5vw,72px);background:#fff;">
+  <section data-sec data-idx="3" style="padding:clamp(80px,9vw,128px) clamp(20px,5vw,72px);background:#fff;">
     <div id="contact" style="max-width:1180px;margin:0 auto;">
       <div style="text-align:center;">
         <span style="font-size:14px;font-weight:600;letter-spacing:0.18em;text-transform:uppercase;color:var(--blue);">Let's talk</span>
