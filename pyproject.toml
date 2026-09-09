@@ -19,5 +19,5 @@ package = false
 
 [dependency-groups]
 dev = [
-    "granian[reload]>=2.7.9",
+    "granian[reload]>=2.8.1",
 ]
