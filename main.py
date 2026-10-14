@@ -34,6 +34,9 @@ class Settings(BaseSettings):
     mail_from: str = "Wheelers <noreply@wheele.rs>"
     contact_to: str = "sergeykanafyev@gmail.com"
 
+    # Set on non-production deployments so search engines don't index them as duplicates of wheele.rs.
+    noindex: bool = False
+
     @property
     def configured(self) -> bool:
         return bool(self.smtp_host)
@@ -86,8 +89,26 @@ class _ProxySchemeMiddleware:
         await self.app(scope, receive, send)
 
 
+class _NoIndexMiddleware:
+    def __init__(self, app):
+        self.app = app
+
+    async def __call__(self, scope, receive, send):
+        if scope["type"] != "http":
+            return await self.app(scope, receive, send)
+
+        async def send_with_header(message):
+            if message["type"] == "http.response.start":
+                message.setdefault("headers", []).append((b"x-robots-tag", b"noindex, nofollow"))
+            await send(message)
+
+        await self.app(scope, receive, send_with_header)
+
+
 app = FastAPI(title="Wheelers Landing")
 app.add_middleware(_ProxySchemeMiddleware)
+if settings.noindex:
+    app.add_middleware(_NoIndexMiddleware)
 app.mount("/static", StaticFiles(directory="static"), name="static")
 templates = Jinja2Templates(directory="templates")
 

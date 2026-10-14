@@ -95,6 +95,7 @@ jobs:
           -e SMTP_USE_TLS="$SMTP_USE_TLS" \
           -e MAIL_FROM="$MAIL_FROM" \
           -e CONTACT_TO="$CONTACT_TO" \
+          -e NOINDEX=true \
           $IMAGE_NAME:$IMAGE_TAG
 
           docker ps --filter name=$CONTAINER_NAME
