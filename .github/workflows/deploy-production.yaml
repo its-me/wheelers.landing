@@ -5,6 +5,7 @@ on:
   push:
     tags:
       - '*'
+  workflow_dispatch:
 
 
 env:
@@ -26,6 +27,12 @@ jobs:
       packages: write
 
     steps:
+    - name: Require a release tag
+      if: github.ref_type != 'tag'
+      run: |
+        echo "::error::Production deploys must run from a release tag (select a tag in 'Use workflow from'), not '${GITHUB_REF_NAME}'."
+        exit 1
+
     - name: Checkout repository
       uses: actions/checkout@v7
 

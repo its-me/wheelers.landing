@@ -5,6 +5,7 @@ on:
   push:
     branches:
       - main
+  workflow_dispatch:
 
 
 env:
@@ -32,7 +33,7 @@ jobs:
     - name: Set variables
       run: |
         IMAGE_NAME="${{ env.REGISTRY }}/${{ github.repository }}"
-        IMAGE_TAG="${GITHUB_REF_NAME}-${GITHUB_SHA::7}"
+        IMAGE_TAG="${GITHUB_REF_NAME//[^a-zA-Z0-9_.-]/-}-${GITHUB_SHA::7}"
         echo "IMAGE_NAME=$IMAGE_NAME" >> $GITHUB_ENV
         echo "IMAGE_TAG=$IMAGE_TAG" >> $GITHUB_ENV
 
