@@ -6,6 +6,11 @@ on:
     tags:
       - '*'
   workflow_dispatch:
+    inputs:
+      version:
+        description: Release to build and deploy, e.g. v1.2.8 (leave empty to use the tag selected above)
+        required: false
+        type: string
 
 
 env:
@@ -27,19 +32,41 @@ jobs:
       packages: write
 
     steps:
-    - name: Require a release tag
-      if: github.ref_type != 'tag'
+    - name: Resolve release tag
+      id: release
+      env:
+        VERSION: ${{ inputs.version }}
+        GH_TOKEN: ${{ github.token }}
       run: |
-        echo "::error::Production deploys must run from a release tag (select a tag in 'Use workflow from'), not '${GITHUB_REF_NAME}'."
-        exit 1
+        if [ -n "$VERSION" ]; then
+          TAG="v${VERSION#v}"
+          if ! [[ "$TAG" =~ ^v[0-9]+\.[0-9]+\.[0-9]+$ ]]; then
+            echo "::error::Invalid version '$VERSION'; expected something like v1.2.8."
+            exit 1
+          fi
+          if ! gh api "repos/$GITHUB_REPOSITORY/git/ref/tags/$TAG" --silent 2>/dev/null; then
+            echo "::error::Release tag '$TAG' does not exist."
+            exit 1
+          fi
+        elif [ "$GITHUB_REF_TYPE" = "tag" ]; then
+          TAG="$GITHUB_REF_NAME"
+        else
+          echo "::error::Production deploys need a release: enter a version or select a tag in 'Use workflow from', not '$GITHUB_REF_NAME'."
+          exit 1
+        fi
+        echo "tag=$TAG" >> "$GITHUB_OUTPUT"
 
     - name: Checkout repository
       uses: actions/checkout@v7
+      with:
+        ref: refs/tags/${{ steps.release.outputs.tag }}
 
     - name: Set variables
+      env:
+        TAG: ${{ steps.release.outputs.tag }}
       run: |
         IMAGE_NAME="${{ env.REGISTRY }}/${{ github.repository }}"
-        IMAGE_TAG="${GITHUB_REF_NAME#v}"
+        IMAGE_TAG="${TAG#v}"
         echo "IMAGE_NAME=$IMAGE_NAME" >> $GITHUB_ENV
         echo "IMAGE_TAG=$IMAGE_TAG" >> $GITHUB_ENV
 
