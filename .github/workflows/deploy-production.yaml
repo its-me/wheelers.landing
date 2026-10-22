@@ -7,8 +7,8 @@ on:
       - '*'
   workflow_dispatch:
     inputs:
-      version:
-        description: Release to build and deploy, e.g. v1.2.8 (leave empty to use the tag selected above)
+      release:
+        description: Release tag to build and deploy, e.g. v1.2.8 (leave empty for the latest release)
         required: false
         type: string
 
@@ -35,24 +35,24 @@ jobs:
     - name: Resolve release tag
       id: release
       env:
-        VERSION: ${{ inputs.version }}
+        RELEASE: ${{ inputs.release }}
         GH_TOKEN: ${{ github.token }}
       run: |
-        if [ -n "$VERSION" ]; then
-          TAG="v${VERSION#v}"
+        if [ "$GITHUB_EVENT_NAME" = "workflow_dispatch" ] && [ -z "$RELEASE" ]; then
+          TAG=$(gh api "repos/$GITHUB_REPOSITORY/releases/latest" --jq .tag_name)
+          echo "No release given; deploying latest release $TAG."
+        elif [ "$GITHUB_EVENT_NAME" = "workflow_dispatch" ]; then
+          TAG="v${RELEASE#v}"
           if ! [[ "$TAG" =~ ^v[0-9]+\.[0-9]+\.[0-9]+$ ]]; then
-            echo "::error::Invalid version '$VERSION'; expected something like v1.2.8."
+            echo "::error::Invalid release '$RELEASE'; expected something like v1.2.8."
             exit 1
           fi
           if ! gh api "repos/$GITHUB_REPOSITORY/git/ref/tags/$TAG" --silent 2>/dev/null; then
             echo "::error::Release tag '$TAG' does not exist."
             exit 1
           fi
-        elif [ "$GITHUB_REF_TYPE" = "tag" ]; then
-          TAG="$GITHUB_REF_NAME"
         else
-          echo "::error::Production deploys need a release: enter a version or select a tag in 'Use workflow from', not '$GITHUB_REF_NAME'."
-          exit 1
+          TAG="$GITHUB_REF_NAME"
         fi
         echo "tag=$TAG" >> "$GITHUB_OUTPUT"
 
