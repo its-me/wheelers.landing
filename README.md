@@ -7,9 +7,7 @@ Built with FastAPI + Jinja2 + Tailwind-style utility CSS.
 
 1. **Hero** — positioning, dual CTAs, market stats, product dashboard
 2. **Product** — three pillars + six capability cards
-3. **Pricing** — Starter / Basic / Pro subscription ladder
-4. **Invest** — the $200k-for-20% raise, use-of-funds bars, market figures
-5. **Contact** — instant contact form (demo / invest toggle) + founder card
+3. **Contact** — instant contact form (demo / invest toggle) + founder card
 
 ## Run
 
