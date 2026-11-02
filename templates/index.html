@@ -74,7 +74,6 @@
   .wh-mobile-menu a:last-child{border-bottom:none;margin-top:12px;background:var(--green);color:var(--blue2);text-align:center;padding:14px;border-radius:10px;font-weight:700;}
   @media (max-width:860px){
     .wh-grid-3{grid-template-columns:1fr !important;}
-    .wh-contact-grid{grid-template-columns:1fr !important;}
     .wh-dotnav{display:none !important;}
     .wh-nav-desktop{display:none !important;}
     .wh-hamburger{display:flex !important;}
@@ -205,7 +204,7 @@
         <p class="wh-dw" style="--dw:606px;margin:40px auto 0;max-width:56ch;font-size:20px;line-height:1.55;color:#5b6472;">Book a product demo or request our investor materials, including deeper financial projections, technical diligence, and customer references.</p>
       </div>
 
-      <div class="wh-contact-grid" style="display:grid;grid-template-columns:1.15fr 0.85fr;gap:24px;margin-top:40px;align-items:start;">
+      <div style="margin-top:40px;">
         <!-- form / success -->
         <div style="background:var(--green-16);border:1px solid #e7ebf0;border-radius:20px;padding:clamp(26px,3vw,40px);">
           <form id="contactForm" style="display:flex;flex-direction:column;gap:18px;">
@@ -227,49 +226,6 @@
             <h3 id="successTitle" style="margin:22px 0 0;font-size:24px;font-weight:600;letter-spacing:-0.02em;color:#14181F;">Thanks — message sent!</h3>
             <p id="successBody" style="margin:12px 0 0;max-width:40ch;font-size:15.5px;line-height:1.55;color:#5b6472;"></p>
             <button type="button" id="resetBtn" style="margin-top:24px;background:#fff;color:var(--blue);border:1.5px solid #d6dbe4;border-radius:10px;padding:12px 24px;font-weight:600;font-size:15px;cursor:pointer;">Send another</button>
-          </div>
-        </div>
-
-        <!-- founder card -->
-        <div data-nosnippet style="display:flex;flex-direction:column;gap:14px;">
-          <div style="background:#fff;border:1px solid #e7ebf0;border-radius:20px;padding:30px;">
-            <div style="display:flex;align-items:center;gap:14px;">
-              <span style="display:flex;align-items:center;justify-content:center;width:54px;height:54px;border-radius:14px;background:var(--blue);color:#fff;font-weight:700;font-size:19px;letter-spacing:0.02em;">SK</span>
-              <div>
-                <div style="font-size:20px;font-weight:600;color:var(--ink2);">Sergey Kanafyev</div>
-                <div style="font-size:14px;color:#5b6472;">Founder &amp; CEO</div>
-              </div>
-            </div>
-            <div style="display:flex;flex-direction:column;gap:2px;margin-top:24px;">
-              <a href="https://kanafyev.me" target="_blank" rel="noopener" style="display:flex;justify-content:space-between;align-items:center;gap:12px;padding:14px 0;border-top:1px solid #eef0f3;text-decoration:none;">
-                <span style="font-size:14px;color:#8a93a0;letter-spacing:0.04em;">Website</span>
-                <span style="font-size:14px;color:var(--blue);font-weight:600;text-decoration:underline;text-align:right;word-break:break-all;">https://kanafyev.me</span>
-              </a>
-              <a href="https://www.linkedin.com/in/sergey-kanafyev" target="_blank" rel="noopener" style="display:flex;justify-content:space-between;align-items:center;gap:12px;padding:14px 0;border-top:1px solid #eef0f3;text-decoration:none;">
-                <span style="font-size:14px;color:#8a93a0;letter-spacing:0.04em;">LinkedIn</span>
-                <span style="font-size:14px;color:var(--blue);font-weight:600;text-decoration:underline;text-align:right;word-break:break-all;">https://www.linkedin.com/in/sergey-kanafyev</span>
-              </a>
-              <a href="https://github.com/its-me" target="_blank" rel="noopener" style="display:flex;justify-content:space-between;align-items:center;gap:12px;padding:14px 0;border-top:1px solid #eef0f3;text-decoration:none;">
-                <span style="font-size:14px;color:#8a93a0;letter-spacing:0.04em;">GitHub</span>
-                <span style="font-size:14px;color:var(--blue);font-weight:600;text-decoration:underline;text-align:right;word-break:break-all;">https://github.com/its-me</span>
-              </a>
-              <a id="wh-email-link" href="#" style="display:flex;justify-content:space-between;align-items:center;gap:12px;padding:14px 0;border-top:1px solid #eef0f3;text-decoration:none;">
-                <span style="font-size:14px;color:#8a93a0;letter-spacing:0.04em;">Email</span>
-                <span id="wh-email-txt" style="font-size:14px;color:var(--ink2);font-weight:500;text-align:right;word-break:break-all;"></span>
-              </a>
-              <a id="wh-wa-link" href="#" style="display:flex;justify-content:space-between;align-items:center;gap:12px;padding:14px 0;border-top:1px solid #eef0f3;text-decoration:none;">
-                <span style="font-size:14px;color:#8a93a0;letter-spacing:0.04em;">WhatsApp</span>
-                <span id="wh-wa-txt" style="font-size:14px;color:var(--ink2);font-weight:500;text-align:right;"></span>
-              </a>
-              <a id="wh-tg-link" href="#" style="display:flex;justify-content:space-between;align-items:center;gap:12px;padding:14px 0;border-top:1px solid #eef0f3;text-decoration:none;">
-                <span style="font-size:14px;color:#8a93a0;letter-spacing:0.04em;">Telegram</span>
-                <span id="wh-tg-txt" style="font-size:14px;color:var(--ink2);font-weight:500;text-align:right;"></span>
-              </a>
-            </div>
-          </div>
-          <div style="background:var(--blue);border-radius:20px;padding:26px 30px;color:#fff;">
-            <div style="font-size:20px;font-weight:600;">Built by operators &amp; engineers</div>
-            <p style="margin:8px 0 0;font-size:14px;line-height:1.55;color:#c6d4ef;">60+ years of combined expertise across startups, scalable systems, mobile engineering, design, and rental operations.</p>
           </div>
         </div>
       </div>
@@ -388,21 +344,6 @@
   mobileMenu.querySelectorAll('a').forEach(function (a) {
     a.addEventListener('click', closeMobileMenu);
   });
-
-  // ---- Contact obfuscation: decoded at runtime to keep details out of raw HTML ----
-  (function () {
-    var c = [
-      ['wh-email-link', 'wh-email-txt', 'bWFpbHRvOnMua2FuYWZ5ZXZAd2hlZWxlLnJz', 'cy5rYW5hZnlldkB3aGVlbGUucnM='],
-      ['wh-wa-link',    'wh-wa-txt',    'aHR0cHM6Ly93YS5tZS85NzE1MDM0NTAxNDU=',         'Kzk3MSA1MCAzNDUgMDE0NQ=='],
-      ['wh-tg-link',    'wh-tg-txt',    'aHR0cHM6Ly90Lm1lL2thbmFmeWV2',                 'QGthbmFmeWV2'],
-    ];
-    c.forEach(function (r) {
-      var a = document.getElementById(r[0]);
-      var s = document.getElementById(r[1]);
-      if (a) a.href = atob(r[2]);
-      if (s) s.textContent = atob(r[3]);
-    });
-  })();
 })();
 </script>
 <script async defer src="https://buttons.github.io/buttons.js"></script>
